@@ -5,7 +5,7 @@ import { json } from '@sveltejs/kit';
 export async function GET({ url
 }) {
 	/** const modules = import.meta.glob('/content/*.{md,svx,svelte.md}'); */
-	const modules = import.meta.glob('/src/routes/content/*.{md,svx,svelte.md}');
+	const modules = import.meta.glob('/content/*.{md,svx,svelte.md}');
 
 	const postPromises = [];
 

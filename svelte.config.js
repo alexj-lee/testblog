@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-auto';
+import adapter from '@sveltejs/adapter-netlify';
 import { mdsvex } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatexSvelte from "rehype-katex-svelte";
@@ -52,6 +52,7 @@ const config = {
 	kit: {
 		adapter: adapter({
 			split: false,
+			edge: false,
 
 			// nov 2022
 			// if true, will create a Netlify Edge Function rather
