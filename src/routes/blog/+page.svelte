@@ -13,7 +13,6 @@
 	export let data;
 
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
-	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items;
 
 	// // https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
