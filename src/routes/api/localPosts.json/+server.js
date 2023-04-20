@@ -5,11 +5,9 @@ import { json } from '@sveltejs/kit';
 export async function GET({ url
 }) {
 	/** const modules = import.meta.glob('/content/*.{md,svx,svelte.md}'); */
-	const modules = import.meta.glob('/content/*.{md,svx,svelte.md}');
+	const modules = import.meta.glob('/src/routes/content/*.{md,svx,svelte.md}');
 
 	const postPromises = [];
-
-	const l = modules.length;
 
 	for (let [path, resolver] of Object.entries(modules)) {
 		const slug = slugFromPath(path);
@@ -22,9 +20,10 @@ export async function GET({ url
 	}
 
 	const posts = await Promise.all(postPromises);
-	const publishedPosts = posts.filter((post) => post.published)
+	// const publishedPosts = posts.filter((post) => post.published)
 
-	publishedPosts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
+	// publishedPosts.sort((a, b) => (new Date(a.date) > new Date(b.date) ? -1 : 1));
 
+	console.log(posts.length);
 	return json(posts);
 }

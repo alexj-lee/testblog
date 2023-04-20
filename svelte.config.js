@@ -54,6 +54,12 @@ const config = {
 			split: false,
 			edge: false,
 
+			// pages: 'build',
+			// assets: 'build',
+			// fallback: null,
+			// precompress: false,
+			// strict: true,
+
 			// nov 2022
 			// if true, will create a Netlify Edge Function rather
 			// than using standard Node-based functions. however, also uses esbuild, which as of nov 2022 has a bug on netlify
@@ -62,6 +68,7 @@ const config = {
 			// dec 2022 - moved back to true since we're using esbuild again
 
 		}),
+
 		// https://kit.svelte.dev/docs/configuration#csp
 		// csp: {
 		// 	directives: {

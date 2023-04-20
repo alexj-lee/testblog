@@ -2,7 +2,7 @@
 export const prerender = true; // turned off bc it causes errors
 
 export async function load({ setHeaders, fetch }) {
-	const res = await fetch(`/api/listContent.json`);
+	const res = await fetch(`/api/localPosts.json`);
 
 	// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
 	// Object.entries(import.meta.glob('./*.md')).map(async ([path, page]) => {

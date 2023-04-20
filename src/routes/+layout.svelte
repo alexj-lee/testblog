@@ -5,12 +5,12 @@
 </script>
 
 <svelte:head>
-	<link
+	<!-- <link
 		rel="alternate"
 		type="application/rss+xml"
 		title={'RSS Feed for ' + SITE_TITLE}
 		href="/rss.xml"
-	/>
+	/> -->
 </svelte:head>
 
 <div class="flex flex-col justify-center bg-gray-50 px-4 dark:bg-gray-900 sm:px-8">
@@ -26,7 +26,7 @@
 		<div class="flex flex-col space-y-4">
 			<a class="text-gray-500 transition hover:text-gray-300" href="/">Home</a>
 			<a class="text-gray-500 transition hover:text-gray-300" href="/about">About</a>
-			<a class="text-gray-500 transition hover:text-gray-300" href="/#newsletter">Newsletter</a>
+			<!-- <a class="text-gray-500 transition hover:text-gray-300" href="/#newsletter">Newsletter</a> -->
 			<a class="text-gray-500 transition hover:text-gray-300" href="/rss.xml" rel="external">
 				RSS
 			</a>

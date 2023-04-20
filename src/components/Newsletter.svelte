@@ -90,9 +90,9 @@
 					type="submit">Subscribe</button
 				>
 			</form>
-			<p class="text-sm text-gray-800 dark:text-gray-200">
+			<!-- <p class="text-sm text-gray-800 dark:text-gray-200">
 				5,432 subscribers including my Mom – <a href="/#newsletter">123 issues</a>
-			</p>
+			</p> -->
 		{/if}
 	</div>
 </section>
