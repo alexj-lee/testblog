@@ -16,9 +16,9 @@
 		{#each items as item (item.slug)}
 			<li>
 				<a class="font-bold" data-sveltekit-preload-data href={item.slug}>{item.title}</a>
-				<span class="hidden text-xs text-black dark:text-gray-400 sm:inline"
+				<!-- <span class="hidden text-xs text-black dark:text-gray-400 sm:inline"
 					>{new Date(item.date).toISOString().slice(0, 10)}</span
-				>
+				> -->
 			</li>
 		{/each}
 	</ul>

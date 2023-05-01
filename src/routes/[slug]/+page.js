@@ -10,7 +10,7 @@ export async function load({ params, fetch, setHeaders }) {
 	const slug = params.slug;
 	let [pageData, listData] = await Promise.all([
 		fetch(`/api/blog/${slug}.json`),
-		fetch(`/api/localPosts.json`)
+		//fetch(`/api/localPosts.json`)
 	])
 
 	// if (pageData.status > 400) {
@@ -25,7 +25,7 @@ export async function load({ params, fetch, setHeaders }) {
 
 	return {
 		json: await pageData.json(),
-		list: (await listData.json()).slice(0, 10),
+		//list: (await listData.json()).slice(0, 10),
 		slug,
 		REPO_URL
 	};

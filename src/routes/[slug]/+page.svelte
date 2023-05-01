@@ -18,7 +18,6 @@
 	/** @type {import('$lib/types').ContentItem} */
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
 
-
 	export let commentsEl;
 	$: issueNumber = json?.ghMetadata?.issueUrl?.split('/')?.pop();
 
@@ -115,7 +114,7 @@
 	{/if}
 	<div class="prose mb-12 max-w-full border-t border-b border-blue-800 p-4 dark:prose-invert" />
 
-	<LatestPosts items={data.list} />
+	<!-- <LatestPosts items={data.list} /> -->
 </div>
 
 <style>

@@ -155,7 +155,7 @@
 					<IndexCard
 						href={item.slug}
 						title={item.title}
-						stringData={new Date(item.date).toISOString().slice(0, 10)}
+						stringData={new Date('2022-01-01').toISOString().slice(0, 10)} 
 						ghMetadata={item.ghMetadata}
 						{item}
 					>

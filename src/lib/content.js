@@ -286,16 +286,27 @@ export async function listBlogposts() {
 
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
+export async function getPost(slug) {
+	const post = await import(`../routes/content/${slug}.md`);
+	const content = post.default.render().html
+
+	return {
+		content,
+		title: 'heilo',
+		date: '2022-01-01'
+	}
+}
+
 export async function getBlogpost(slug) {
-	console.log('preresolve;');
+	// console.log('preresolve;');
 	const _path = resolve('src/routes/content', slug + '.md');
-	console.log('postresolve;', _path);
+	// console.log('postresolve;', _path);
 	const src = await fs.readFile(_path, 'utf8');
-	console.log('read file');
+	// console.log('read file');
 	const data = grayMatter(src);
-	console.log('graymatter finished')
-	console.log(data);
-	console.log('^graymatter');
+	// console.log('graymatter finished')
+	// console.log(data);
+	// console.log('^graymatter');
 	// 	[APP]   data: {
 	// [APP]     layout: 'blog',
 	// [APP]     title: 'Attention across datapoints',
@@ -310,8 +321,11 @@ export async function getBlogpost(slug) {
 	// [APP]     github: 'https://github.com/OATML/Non-Parametric-Transformers'
 	// [APP]   },
 
-	const content = await parseMarkdown({ filePath: _path, markdown: data.content })
-	console.log('content parsing finished');
+	const content = await parseMarkdown({
+		filePath: _path,
+		markdown: data.content
+	})
+	// console.log('content parsing finished');
 	//const content = (await compile(data.content, {})).code;
 
 	return {
