@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-vercel';
 import { mdsvex } from 'mdsvex';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeKatexSvelte from "rehype-katex-svelte";
@@ -51,8 +51,8 @@ const config = {
 	// Docs: https://github.com/sveltejs/kit/blob/master/packages/adapter-netlify/README.md
 	kit: {
 		adapter: adapter({
-			split: false,
-			edge: false,
+			split: true,
+			//edge: false,
 
 			// pages: 'build',
 			// assets: 'build',
