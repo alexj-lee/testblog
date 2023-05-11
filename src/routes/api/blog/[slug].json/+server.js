@@ -7,7 +7,7 @@ export async function GET({ fetch, params }) {
 	const { slug } = params;
 	let data;
 	try {
-		data = await getBlogpost(slug);
+		//data = await getBlogpost(slug);
 		data = await getPost(slug);
 		return new Response(JSON.stringify(data), {
 			headers: {
