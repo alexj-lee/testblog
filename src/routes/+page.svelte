@@ -53,7 +53,23 @@
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
 				And this is my personal blog.
 			</h2>
+
+			<div> 
+				<img
+					src="/static/1jrj-d80_minsize.webp"
+					alt="A video of a protein wiggling around."
+					class="brightness-85 invisible 
+					max-w-sm bg-transparent  
+					opacity-90 dark:bg-transparent dark:opacity-100 dark:brightness-100
+					md:visible 
+					block
+					"
+
+				/>
+			</div>
 		</div>
+
+
 		<!-- <div
 				class="w-[80px] h-[80px] rounded-full sm:w-[176px] sm:h-[136px] relative mb-8 sm:mb-0 mr-auto bg-cyan-300 bg-opacity-25"
 			/> -->
