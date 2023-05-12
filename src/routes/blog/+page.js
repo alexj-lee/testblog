@@ -9,7 +9,7 @@ export async function load({ setHeaders, fetch }) {
 	}
 
 	/** /** @type {import('$lib/types').ContentItem[]} */
-
 	var items = await res.json();
+	
 	return { items };
 }

@@ -4,7 +4,7 @@
 	/** @type {import('$lib/types').ContentItem} */
 	export let item = undefined;
 	/** @type {import('$lib/types').GHMetadata} */
-	export let ghMetadata = null;
+	export let Metadata = null;
 	export let title = 'Untitled post';
 	/** @type {string} */
 	export let stringData = 'no date';
@@ -41,9 +41,9 @@
 				{/each}
 			</div>
 			{/if}
-			{#if ghMetadata && ghMetadata.reactions.total_count}
-				<p class="">{ghMetadata.reactions.total_count} ♥</p>
-			{/if}
+			<!-- {#if ghMetadata && Metadata.reactions.total_count}
+				<p class="">{ghMetadata.reactions.total_count} ♥</p> -->
+			<!-- {/if} -->
 		</div>
 	</div></a
 >

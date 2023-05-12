@@ -11,6 +11,7 @@ export async function GET({ fetch, params }) {
 		date,
 		youtube,
 		link,
+		category,
 	} = params;
 	//const { slug } = params;
 	let data;
@@ -24,18 +25,13 @@ export async function GET({ fetch, params }) {
 		//console.log(Object.keys(res));
 		//console.log(data.md.md);
 
-		let content = { content: data };
-
-		Object.assign(content, {
-			title: 'titlalexe',
-			author: author,
-			date: date
-		});
+		//let content = { content: data };
 
 		//let content_json = JSON.stringify(content);
 		let content_json = JSON.stringify(data);
 
-		console.log(Object.keys(data));
+		//console.log(Object.keys(data));
+
 		//let json_data = JSON.stringify(data);
 		//json_data = { json: json_data };
 		//json_data['title'] = title;

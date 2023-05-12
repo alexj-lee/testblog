@@ -63,18 +63,23 @@ export async function GET({ url }) {
 			const slug = slugFromPath(path);
 			//const md = compile(body.html, { remarkPlugins, rehypePlugins });
 			//console.log(md);
+			const metadata = resolvedPost.metadata;
+			//console.log(metadata.category);
+
 			return {
 				// meta: resolvedPost.metadata,
 				slug: slug,
 				...resolvedPost.metadata,
+				//...metadata,
 				// body: body,
 				md: body,
 			};
 		})
 	);
-
+	//console.log(allPosts);
+	
 	const sortedPosts = allPosts.sort((a, b) => {
-		return new Date(b.meta.date) > new Date(a.meta.date);
+		return new Date(b.date) > new Date(a.date);
 	})
 
 	return json(sortedPosts);
