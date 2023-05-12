@@ -32,6 +32,11 @@ function debounce(func, wait) {
  * @return {Object[]}
  */
 function _fuzzySearch(items, selectedCategories, search) {
+  console.log('---start---')
+  console.log('items', items);
+  console.log('categories', selectedCategories);
+  console.log('search', search);
+  
   const filteredItems = items.filter((item) => {
     if (selectedCategories?.length < 1) return true
     return selectedCategories
@@ -50,6 +55,9 @@ function _fuzzySearch(items, selectedCategories, search) {
         v.description
       ].join(' ')
     );
+    console.log('haystack', haystack);
+    console.log('---end---')
+    
     const idxs = u.filter(haystack, search);
     const info = u.info(idxs, haystack, search);
     const order = u.sort(info, haystack, search);
@@ -71,8 +79,10 @@ function _fuzzySearch(items, selectedCategories, search) {
         .split(' ').slice(1, -1).join(' ')
       return { ...x, highlightedResults: hl }
     })
+    console.log('list is', list);
     return list
   } else {
+    console.log('filtereditems', filteredItems);
     return filteredItems
   }
 }

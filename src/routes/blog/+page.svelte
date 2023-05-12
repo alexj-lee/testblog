@@ -4,7 +4,7 @@
 	// import { page } from '$app/stores';
 	import { queryParam, ssp } from 'sveltekit-search-params';
 
-	import { SITE_TITLE } from '$lib/siteConfig';
+	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
 
 	import IndexCard from '../../components/IndexCard.svelte';
 	// import MostPopular from './MostPopular.svelte';
@@ -16,61 +16,66 @@
 	$: items = data.items;
 
 	// // https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
-	// /** @type import('svelte/store').Writable<String[] | null> */
-	// let selectedCategories = queryParam(
-	// 	'show',
-	// 	{
-	// 		encode: (arr) => arr?.toString(),
-	// 		decode: (str) => str?.split(',')?.filter((e) => e) ?? []
-	// 	},
-	// 	{ debounceHistory: 500 }
-	// );
-	// let search = queryParam('filter', ssp.string(), {
-	// 	debounceHistory: 500
-	// });
+	/** @type import('svelte/store').Writable<String[] | null> */
+	let selectedCategories = queryParam(
+		'show',
+		{
+			encode: (arr) => arr?.toString(),
+			decode: (str) => str?.split(',')?.filter((e) => e) ?? []
+		},
+		{ debounceHistory: 500 }
+	);
+	
+	let search = queryParam('filter', ssp.string(), {
+		debounceHistory: 500
+	});
 
-	// let inputEl;
+	let inputEl;
 
-	// function focusSearch(e) {
-	// 	if (e.key === '/' && inputEl) inputEl.select();
-	// }
+	function focusSearch(e) {
+		if (e.key === '/' && inputEl) inputEl.select();
+	}
 
-	// // https://github.com/leeoniya/uFuzzy#options
-	// // we know this has js weight, but we tried lazyloading and it wasnt significant enough for the added complexity
-	// // https://github.com/sw-yx/swyxkit/pull/171
-	// // this will be slow if you have thousands of items, but most people don't
-	// let isTruncated = items?.length > 20;
+	// https://github.com/leeoniya/uFuzzy#options
+	// we know this has js weight, but we tried lazyloading and it wasnt significant enough for the added complexity
+	// https://github.com/sw-yx/swyxkit/pull/171
+	// this will be slow if you have thousands of items, but most people don't
+	let isTruncated = items?.length > 20;
 
-	// // we are lazy loading a fuzzy search function
-	// // with a fallback to a simple filter function
-	// let loaded = false;
-	// const filterCategories = async (_items, _, s) => {
-	// 	if (!$selectedCategories?.length) return _items;
-	// 	return _items
-	// 		.filter((item) => {
-	// 			return $selectedCategories
-	// 				.map((element) => {
-	// 					return element.toLowerCase();
-	// 				})
-	// 				.includes(item.category.toLowerCase());
-	// 		})
-	// 		.filter((item) => item.toString().toLowerCase().includes(s));
-	// };
-	// $: searchFn = filterCategories;
-	// function loadsearchFn() {
-	// 	if (loaded) return;
-	// 	import('./fuzzySearch').then((fuzzy) => {
-	// 		searchFn = fuzzy.fuzzySearch;
-	// 		loaded = true;
-	// 	});
-	// }
-	// if ($search) loadsearchFn();
-	// /** @type import('$lib/types').ContentItem[]  */
-	// let list;
-	// $: searchFn(items, $selectedCategories, $search).then((_items) => (list = _items));
+	// we are lazy loading a fuzzy search function
+	// with a fallback to a simple filter function
+	let loaded = false;
+	const filterCategories = async (_items, _, s) => {
+		if (!$selectedCategories?.length) return _items;
+		return _items
+			.filter((item) => {
+				return $selectedCategories
+					.map((element) => {
+						return element.toLowerCase();
+					})
+					.includes(item.category.toLowerCase());
+			})
+			.filter((item) => item.toString().toLowerCase().includes(s));
+	};
+
+	$: searchFn = filterCategories;
+	function loadsearchFn() {
+		if (loaded) return;
+		import('./fuzzySearch').then((fuzzy) => {
+			searchFn = fuzzy.fuzzySearch;
+			loaded = true;
+		});
+	}
+
+	if ($search) loadsearchFn();
+
+	/** @type import('$lib/types').ContentItem[]  */
+	let list;
+	$: searchFn(items, $selectedCategories, $search).then(_items => list = _items);
 
 	// let POST_CATEGORIES = [];
 	// .slice(0, isTruncated ? 2 : items.length);
+	console.log('loaded is', loaded);
 </script>
 
 <svelte:head>
@@ -78,6 +83,7 @@
 	<meta name="description" content={`Latest ${SITE_TITLE} posts`} />
 </svelte:head>
 
+<svelte:window on:keyup={focusSearch} />
 
 <section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
@@ -87,7 +93,7 @@
 		In total, I've written {items.length} articles on my blog. Use the search below to
 		filter by title.
 	</p>
-	<!-- <div class="relative mb-4 w-full">
+	<div class="relative mb-4 w-full">
 		<input
 			aria-label="Search articles"
 			type="text"
@@ -108,11 +114,11 @@
 				stroke-width="2"
 				d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
 			/></svg
-		> -->
-	<!-- </div> -->
+		> 
+	</div>
 
 	<!-- if you have multiple categories enabled -->
-	<!-- {#if POST_CATEGORIES.length > 1}
+	{#if POST_CATEGORIES.length > 1}
 		<div class="mt-2 mb-8 flex items-center">
 			<div class="mr-2 text-gray-900 dark:text-gray-400">Filter:</div>
 			<div class="grid grid-cols-2 rounded-md shadow-sm sm:grid-cols-2">
@@ -135,7 +141,7 @@
 				{/each}
 			</div>
 		</div>
-	{/if} -->
+	{/if}
 
 	<!-- you can hardcode yourmost popular posts or pinned post here if you wish
 	{#if !$search && !$selectedCategories?.length}
@@ -145,9 +151,9 @@
 		</h3>
 	{/if} -->
 
-	{#if items?.length}
+	{#if list?.length}
 		<ul class="">
-			{#each items as item}
+			{#each list as item}
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
 					<IndexCard
@@ -168,6 +174,8 @@
 				</li>
 			{/each}
 		</ul>
+
+
 		<!-- {#if isTruncated}
 			<div class="flex justify-center">
 				<button

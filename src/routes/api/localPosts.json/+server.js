@@ -61,7 +61,7 @@ export async function GET({ url }) {
 			const resolvedPost = await resolver();
 			const body = resolvedPost.default.render(); // this is the compiled HTML
 			const slug = slugFromPath(path);
-			//const md = compile(body.html, { remarkPlugins, rehypePlugins });
+			// const md = await compile(body.html, { remarkPlugins, rehypePlugins });
 			//console.log(md);
 			const metadata = resolvedPost.metadata;
 			//console.log(metadata.category);
@@ -70,6 +70,7 @@ export async function GET({ url }) {
 				// meta: resolvedPost.metadata,
 				slug: slug,
 				...resolvedPost.metadata,
+				//extra: md,
 				//...metadata,
 				// body: body,
 				md: body,

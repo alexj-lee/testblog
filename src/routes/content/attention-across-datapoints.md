@@ -3,6 +3,7 @@ layout: blog
 title: "Attention across datapoints"
 slug: "attention-across-datapoints"
 author: "alex"
+subtitle: "A new neural network architecture for tabular-ish data"
 description: "A paper notes summary about Kossen et al. 2022."
 date: "2022-07-31"
 published: true
