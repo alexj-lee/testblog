@@ -51,12 +51,14 @@
 				!
 			</h1>
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
-				And this is my personal blog.
+				And this is my personal blog. 
+				
+				Please enjoy this image of a protein wiggling around, PDB ID <a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
 			</h2>
 
 			<div> 
 				<img
-					src="/static/1jrj-d80_minsize.webp"
+					src="/1jrj-d80_minsize.webp"
 					alt="A video of a protein wiggling around."
 					class="brightness-85 invisible 
 					max-w-sm bg-transparent  
