@@ -94,7 +94,7 @@
 		</p>
 	</div>
 	<div
-		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-yellow-400 via-red-500 to-pink-500 sm:mx-0 sm:w-full"
+		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-full"
 	/>
 	{@html json.content}
 </article>

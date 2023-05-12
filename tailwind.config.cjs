@@ -8,6 +8,18 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			colors: {
+				'tahiti': '#32b978',
+				'cameopink': '#EFBBCC',
+				'cerblue': '#29bdad',
+				'greenblue': '#2dbc94',
+				'pistachio': '#56aa69',
+				'chromium': '#66ab56',
+				'artemesia': '#65a98f',
+				'sulphur': '#f5f5b8',
+				'vblue': '#021126',
+			},
+
 			typography: (theme) => ({
 				DEFAULT: {
 					css: {
