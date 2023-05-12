@@ -44,9 +44,9 @@
 			<h1 class="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 				Hi, my name is
 				<span
-					class="relative inline-block ml-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-red-500"
+					class="relative inline-block ml-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-artemesia"
 				>
-					<span class="relative text-yellow-400 skew-y-3">alex!</span>
+					<span class="relative text-white skew-y-3">alex</span>
 				</span>
 				!
 			</h1>
