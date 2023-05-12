@@ -67,8 +67,6 @@
 		href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
 		crossorigin="anonymous"
 	/>
-
-
 </svelte:head>
 
 <TableOfContents {tocStore} />
@@ -83,7 +81,7 @@
 		{json.title}
 	</h1>
 
-	<div class="flex items-center justify-center"> <span> Written: {json.date} </span> </div>
+	<div class="flex items-center justify-center"><span> Written: {json.date} </span></div>
 
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"

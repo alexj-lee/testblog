@@ -1,6 +1,6 @@
 import { slugFromPath } from '$lib/content.js';
 import { json } from '@sveltejs/kit';
-///import { compile } from 'mdsvex';
+import { compile } from 'mdsvex';
 
 // /** @type {import('@sveltejs/kit').RequestHandler} */
 // export async function GET({ url }) {
@@ -59,16 +59,16 @@ export async function GET({ url }) {
 	const allPosts = await Promise.all(
 		iterablePostFiles.map(async ([path, resolver]) => {
 			const resolvedPost = await resolver();
-			//const body = resolvedPost.default.render(); // this is the compiled HTML
+			const body = resolvedPost.default.render(); // this is the compiled HTML
 			const slug = slugFromPath(path);
-			//const md = compile(body.html, { remarkPlugins, rehypePlugins }).code;
-
+			//const md = compile(body.html, { remarkPlugins, rehypePlugins });
+			//console.log(md);
 			return {
 				// meta: resolvedPost.metadata,
 				slug: slug,
 				...resolvedPost.metadata,
 				// body: body,
-				// md: { md }
+				md: body,
 			};
 		})
 	);

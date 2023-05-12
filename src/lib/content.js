@@ -286,14 +286,27 @@ export async function listBlogposts() {
 
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
+
+
 export async function getPost(slug) {
 	const post = await import(`../routes/content/${slug}.md`);
 	const content = post.default.render().html
+	//const prom = Object.entries(post);
+	const metadata = post.metadata;
+
+	// console.log(prom);
+	// console.log(post.metadata)
+	// console.log(post.metadata.date)
+	//const res = await fetch(`/api/localPosts.json`)
+	//var items = await res.json();
 
 	return {
 		content,
-		title: 'heilo',
-		date: '2022-01-01'
+		...metadata
+		//title: prom.title,
+		//date: prom.date,
+		//title: 'heilo',
+		//date: '2022-01-01'
 	}
 }
 

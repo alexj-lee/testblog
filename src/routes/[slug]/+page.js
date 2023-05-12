@@ -13,6 +13,15 @@ export async function load({ params, fetch, setHeaders }) {
 		//fetch(`/api/localPosts.json`)
 	])
 
+	let json = await pageData.json();
+	//console.log(Object.keys(params));
+
+	//Object.assign(json, { date: '1999-0901' });
+	//console.log(Object.keys(json));
+	//console.log(json.content.content);
+
+
+
 	// if (pageData.status > 400) {
 	// 	throw error(pageData.status, await pageData.text());
 	// }
@@ -24,7 +33,8 @@ export async function load({ params, fetch, setHeaders }) {
 	// console.log(reet.content)
 
 	return {
-		json: await pageData.json(),
+		json: json,
+		//json: pageData,
 		//list: (await listData.json()).slice(0, 10),
 		slug,
 		REPO_URL
