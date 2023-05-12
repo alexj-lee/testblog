@@ -1,11 +1,16 @@
-<script>
-  import Readme from '../../../README.md'
-</script>
-
-SwyxKit is a blog template meant for frontend developers who want to get a performant, fully featured content site up and running with SvelteKit, Tailwind CSS, and other blog features (listed below).
-
-Below is the full README.md you get from the github repo: https://github.com/sw-yx/swyxkit
-
----
-
-<Readme />
+<section
+	class="container
+prose
+mx-auto
+hover:scroll-auto
+prose-h1:mb-0
+prose-h1:pb-0
+prose-p:mb-12
+hover:prose-a:text-blue-300
+prose-ul:mt-2
+dark:prose-invert"
+>
+	<div class="">Hi, my name is Alex, I'm currently a grad student in the Abbasi lab at UCSF.
+  Previously I worked in the Seeley lab and at a startup called Nano Precision Medical. 
+  I like biology and computers. Also eating. <br /><br /></div>
+</section>
