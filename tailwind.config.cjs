@@ -10,7 +10,7 @@ module.exports = {
 		extend: {
 			colors: {
 				'tahiti': '#32b978',
-				'cameopink': '#EFBBCC',
+				'cameopink': '#ef6c94',
 				'cerblue': '#29bdad',
 				'greenblue': '#2dbc94',
 				'pistachio': '#56aa69',
