@@ -18,6 +18,7 @@ module.exports = {
 				'artemesia': '#65a98f',
 				'sulphur': '#f5f5b8',
 				'vblue': '#021126',
+				'lightbg': '#ecfdf5'
 			},
 
 			typography: (theme) => ({
