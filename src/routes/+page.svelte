@@ -59,10 +59,10 @@
 				<img
 					src="/1jrj-d80_minsize.webp"
 					alt="A video of a protein wiggling around."
-					class="brightness-85 
-					block max-w-sm  
-					bg-transparent opacity-90 dark:bg-transparent dark:opacity-100
-					dark:brightness-100
+					class="block
+					max-w-sm bg-transparent  
+					opacity-90 brightness-125 dark:bg-transparent dark:opacity-100
+					dark:brightness-110
 					"
 				/>
 			</div>
