@@ -16,7 +16,6 @@
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
 	$: items = data.items;
-
 </script>
 
 <svelte:head>
@@ -37,40 +36,37 @@
 </svelte:head>
 
 <div
-	class="flex flex-col items-start justify-center max-w-2xl px-4 pb-16 mx-auto border-gray-200 dark:border-gray-700 sm:px-8"
+	class="mx-auto flex max-w-2xl flex-col items-start justify-center border-gray-200 px-4 pb-16 dark:border-gray-700 sm:px-8"
 >
 	<div class="flex flex-col-reverse items-start sm:flex-row">
 		<div class="flex flex-col pr-8">
 			<h1 class="mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 				Hi, my name is
 				<span
-					class="relative inline-block ml-2 before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-artemesia"
+					class="relative ml-2 inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-artemesia"
 				>
-					<span class="relative text-white skew-y-3">alex</span>
+					<span class="relative skew-y-3 text-white">alex</span>
 				</span>
 				!
 			</h1>
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
-				And this is my personal blog. 
-				
-				Please enjoy this image of a protein wiggling around, PDB ID <a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
+				And this is my personal blog. Please enjoy this image of a protein wiggling around, PDB ID <a
+					href="https://www.rcsb.org/structure/1JRJ">1jrj</a
+				>.
 			</h2>
 
-			<div> 
+			<div>
 				<img
 					src="/1jrj-d80_minsize.webp"
 					alt="A video of a protein wiggling around."
-					class="brightness-85 invisible 
-					max-w-sm bg-transparent  
-					opacity-90 dark:bg-transparent dark:opacity-100 dark:brightness-100
-					md:visible 
-					block
+					class="brightness-85 
+					block max-w-sm  
+					bg-transparent opacity-90 dark:bg-transparent dark:opacity-100
+					dark:brightness-100
 					"
-
 				/>
 			</div>
 		</div>
-
 
 		<!-- <div
 				class="w-[80px] h-[80px] rounded-full sm:w-[176px] sm:h-[136px] relative mb-8 sm:mb-0 mr-auto bg-cyan-300 bg-opacity-25"
