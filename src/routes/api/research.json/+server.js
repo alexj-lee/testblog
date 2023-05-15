@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { promises as fs } from 'fs';
+export const prerender = true;
 
 async function readPaperFile(fileName, postPromises, typeOfItem) {
 	const papers = fs.readFile(fileName, { encoding: 'utf-8' });
