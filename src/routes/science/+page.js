@@ -1,3 +1,5 @@
+export const prerender = true;
+
 async function loadSorted(filterKey, values) {
 	const filtered = values.filter((item) => item.type == filterKey);
 	const sorted = filtered.sort((a, b) => new Date(b.year) - new Date(a.year));
