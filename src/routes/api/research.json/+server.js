@@ -35,7 +35,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 			}
 			else {
-				entry = item.replace(myName, '<b>' + myName + '</b>')
+				entry = item.replace(myName, '<span class="font-bold dark:text-white">' + myName + '</span>')
 			}
 
 			entry = entry.replace(year, '<i>' + year + '</i>');
