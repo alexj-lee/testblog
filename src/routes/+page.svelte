@@ -60,8 +60,9 @@
 					src="/1jrj-d80_minsize.webp"
 					alt="A video of a protein wiggling around."
 					class="block
-					max-w-sm bg-transparent  
-					opacity-90 brightness-125 dark:bg-transparent dark:opacity-100
+					max-w-sm scale-125  
+					bg-transparent opacity-90 brightness-125 dark:bg-transparent
+					dark:opacity-100
 					dark:brightness-110
 					"
 				/>
