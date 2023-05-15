@@ -1,5 +1,5 @@
-import { json } from '@sveltejs/kit'
-import { promises as fs, readFile, existsSync } from 'fs';
+import { json } from '@sveltejs/kit';
+import { promises as fs } from 'fs';
 
 async function readPaperFile(fileName, postPromises, typeOfItem) {
 	const papers = fs.readFile(fileName, { encoding: 'utf-8' });
@@ -54,8 +54,8 @@ export async function GET({ url }) {
 	const papers_array = papers.split(/\r?\n|\r|\n/g);
 	const paperPromises = [];
 
-	await readPaperFile("./src/routes/research/papers.md", paperPromises, "papers")
-	await readPaperFile("./src/routes/research/preprints.md", paperPromises, "preprints")
+	await readPaperFile("./src/routes/research/papers.md", paperPromises, "paper")
+	await readPaperFile("./src/routes/research/preprints.md", paperPromises, "preprint")
 	await readPaperFile("./src/routes/research/conference.md", paperPromises, "conference")
 	// for (let [index, item] of Object.entries(papers_array)) {
 	// 	if (!item) {
