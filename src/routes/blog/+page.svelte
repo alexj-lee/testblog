@@ -4,7 +4,7 @@
 	// import { page } from '$app/stores';
 	import { queryParam, ssp } from 'sveltekit-search-params';
 
-	import { SITE_TITLE, POST_CATEGORIES } from '$lib/siteConfig';
+	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
 
 	import IndexCard from '../../components/IndexCard.svelte';
 	// import MostPopular from './MostPopular.svelte';
@@ -25,7 +25,9 @@
 		},
 		{ debounceHistory: 500 }
 	);
-	
+
+	// selectedCategories += POST_CATEGORIES[0];
+
 	let search = queryParam('filter', ssp.string(), {
 		debounceHistory: 500
 	});
@@ -67,15 +69,16 @@
 		});
 	}
 
-	if ($search) loadsearchFn();
+	//if ($search) loadsearchFn();
+	loadsearchFn();
 
 	/** @type import('$lib/types').ContentItem[]  */
 	let list;
-	$: searchFn(items, $selectedCategories, $search).then(_items => list = _items);
+	$: searchFn(items, $selectedCategories, $search).then((_items) => (list = _items));
 
 	// let POST_CATEGORIES = [];
 	// .slice(0, isTruncated ? 2 : items.length);
-	console.log('loaded is', loaded);
+	// console.log('loaded is', loaded);
 </script>
 
 <svelte:head>
@@ -90,8 +93,8 @@
 		{SITE_TITLE} posts
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
-		In total, I've written {items.length} articles on my blog. Use the search below to
-		filter by title.
+		In total, I've written {items.length} articles on my blog. Use the search below to filter by title.
+		So far, this page doesn't have much in it yet.
 	</p>
 	<div class="relative mb-4 w-full">
 		<input
@@ -114,7 +117,7 @@
 				stroke-width="2"
 				d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
 			/></svg
-		> 
+		>
 	</div>
 
 	<!-- if you have multiple categories enabled -->
@@ -159,7 +162,7 @@
 					<IndexCard
 						href={item.slug}
 						title={item.title}
-						stringData={new Date(item.date).toISOString().slice(0, 10)} 
+						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						Metadata={item.metadata}
 						{item}
 					>
@@ -174,7 +177,6 @@
 				</li>
 			{/each}
 		</ul>
-
 
 		<!-- {#if isTruncated}
 			<div class="flex justify-center">

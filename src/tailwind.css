@@ -51,7 +51,7 @@ pre {
 
 @layer components {
 	body {
-		--brand-accent: #facc15;
+		--brand-accent: #484241;
 		/* https://ishadeed.com/article/defensive-css */
 		overflow-wrap: break-word;
 		overflow-y: auto;
@@ -70,7 +70,10 @@ pre {
 		background-color: var(--brand-accent);
 	}
 	.dark ::selection {
-		color: #1d1d1d;
+		color: #f5f5b8;
+	}
+	::selection {
+		color: #f5f5b8
 	}
 	::marker {
 		color: var(--brand-accent);
@@ -79,6 +82,7 @@ pre {
 	:is(::-webkit-calendar-picker-indicator, ::-webkit-clear-button, ::-webkit-inner-spin-button, ::-webkit-outer-spin-button) {
 		color: var(--brand-accent);
 	}
+
 
 	/* https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/ */
 	details {
@@ -104,6 +108,10 @@ pre {
 a {
 	/* @apply text-yellow-700 hover:text-yellow-700 hover:underline dark:text-yellow-400 dark:hover:text-yellow-200; */
 	@apply text-cameopink hover:text-artemesia dark:text-cameopink dark:hover:text-artemesia;
+}
+
+ol li {
+	@apply marker:text-gray-700 dark:marker:text-gray-200
 }
 
 /* for the super long github links i drop */

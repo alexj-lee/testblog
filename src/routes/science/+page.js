@@ -37,11 +37,9 @@ export async function load({ params, fetch, setHeaders }) {
 	// console.log(x);
 
 	return {
-		json: {
-			papers,
-			preprints,
-			conferences,
-		}
+		papers,
+		preprints,
+		conferences,
 		//json: json,
 		//json: pageData,
 		//list: (await listData.json()).slice(0, 10),

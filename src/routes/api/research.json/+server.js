@@ -12,29 +12,51 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 		//const regex = /(?:(Alex Jihun Lee|Lee, Alex J.|Alex Lee|Alex J Lee|Alex J. Lee)?).*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
 		//const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.))?.*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
-		const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.).*)?\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
+		const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.).*)?\({0,1}(20\d{2})\){0,1}.*https:\/\/doi.org\/(.*\d)>{0,1}$/gm
 		const regex_search = regex.exec(item);
 		//(Alex Lee|Alex J Lee|Alex J. Lee).*\({0,1}(20\d{2})\){0,1},.*(https:.*)>
 		if (regex_search == null) {
 			postPromises.push({
 				text: item,
 				myName: null,
-
 				type: typeOfItem,
 				year: null,
-				doi: null
+				doi: null,
+				doiSymbol: null
 			})
 		} else {
 			//my_name = regex_search[1];
-			let [, myName, year, doi] = regex_search
-			const entry = item.replace(myName, '<b>' + myName + '</b>')
+			let [match, myName, year, doi] = regex_search
+
+			let entry;
+			if (myName == null) {
+				entry = item.replace('and others', 'and others (plus me!)')
+
+			}
+			else {
+				entry = item.replace(myName, '<b>' + myName + '</b>')
+			}
+
+			entry = entry.replace(year, '<i>' + year + '</i>');
+
+			let doiSymbol;
+
+			// TDDO: check if v2, v3 exist etc.
+			if (match.includes('bioRxiv')) {
+				doiSymbol = 'https://www.biorxiv.org/content/' + doi + 'v1.full.pdf+html'
+				//https://www.biorxiv.org/content/10.1101/2023.03.10.531984v1.full.pdf+html
+			}			// 10.48550arXiv.2303.16725
+			else {
+				doiSymbol = doi.replace('/', '')
+			}
 
 			postPromises.push({
 				text: entry,
 				type: typeOfItem,
 				myName: myName,
 				year: year,
-				doi: doi
+				doi: 'https://doi.org/' + doi,
+				doiSymbol: doiSymbol,
 			})
 		}
 	}
@@ -57,6 +79,7 @@ export async function GET({ url }) {
 	await readPaperFile("./src/routes/research/papers.md", paperPromises, "paper")
 	await readPaperFile("./src/routes/research/preprints.md", paperPromises, "preprint")
 	await readPaperFile("./src/routes/research/conference.md", paperPromises, "conference")
+
 	// for (let [index, item] of Object.entries(papers_array)) {
 	// 	if (!item) {
 	// 		continue

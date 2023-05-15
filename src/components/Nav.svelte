@@ -1,6 +1,5 @@
 <script>
 	import MobileMenu from './MobileMenu.svelte';
-	import { REPO_URL } from '$lib/siteConfig';
 	import NavLink from './NavLink.svelte';
 	let isDark = false;
 	if (typeof localStorage !== 'undefined') {
@@ -38,8 +37,11 @@
 		<li>
 			<NavLink href="/blog">Blog</NavLink>
 		</li>
-		<li>
+		<!-- <li>
 			<NavLink href="/about">About</NavLink>
+		</li> -->
+		<li>
+			<NavLink href="/science">Science</NavLink>
 		</li>
 		<!-- <li>
 			<a
@@ -79,7 +81,7 @@
 		<a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
 			dark:hover:bg-yellow-800"
-			href={REPO_URL}
+			href="https://github.com/alexj-lee"
 			aria-label="GitHub source"
 		>
 			<svg aria-hidden="true" class="h-9 w-9 p-1" fill="currentColor" viewBox="0 0 24 24">

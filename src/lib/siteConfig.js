@@ -9,7 +9,7 @@ export const MY_TWITTER_HANDLE = 'eel__xela';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Paper', 'Note']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 export const GH_PUBLISHED_TAGS = ['Published'];
-
+export const ORCID_ID = '0000-0003-0001-2848'
 // auto generated variables
 export const REPO_URL = 'https://github.com/' + GH_USER_REPO;
 export const REPO_OWNER = GH_USER_REPO.split('/')[0];

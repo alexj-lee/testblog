@@ -1,14 +1,10 @@
 <script>
-	import Newsletter from '../components/Newsletter.svelte';
-	import FeatureCard from '../components/FeatureCard.svelte';
-	import LatestPosts from '../components/LatestPosts.svelte';
 	import {
-		SITE_URL,
-		REPO_URL,
-		SITE_TITLE,
-		SITE_DESCRIPTION,
 		DEFAULT_OG_IMAGE,
-		MY_TWITTER_HANDLE
+		MY_TWITTER_HANDLE,
+		SITE_DESCRIPTION,
+		SITE_TITLE,
+		SITE_URL
 	} from '$lib/siteConfig';
 
 	/** @type {import('./$types').PageData} */
@@ -50,9 +46,11 @@
 				!
 			</h1>
 			<h2 class="mb-4 text-gray-700 dark:text-gray-200">
-				And this is my personal blog. Please enjoy this image of a protein wiggling around, PDB ID <a
-					href="https://www.rcsb.org/structure/1JRJ">1jrj</a
-				>.
+				And this is my personal blog. I'm currently a grad student in the Abbasi lab at UCSF, and
+				previously worked in the Seeley lab and at a startup called Nano Precision Medical.
+
+				<br /> <br /> Please enjoy this image of a protein wiggling around, PDB ID
+				<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
 			</h2>
 
 			<div>
@@ -60,7 +58,7 @@
 					src="/1jrj-d80_minsize.webp"
 					alt="A video of a protein wiggling around."
 					class="block
-					max-w-sm scale-125  
+					max-w-sm scale-100
 					bg-transparent opacity-90 brightness-125 dark:bg-transparent
 					dark:opacity-100
 					dark:brightness-110

@@ -25,6 +25,7 @@ module.exports = {
 				DEFAULT: {
 					css: {
 						'--tw-prose-bullets': theme('colors.black'),
+
 						// these customizations are explained here https://youtu.be/-FzemNMcOGs
 						blockquote: {
 							borderLeft: '3px solid red',
@@ -73,6 +74,7 @@ module.exports = {
 						},
 						'ol > li::marker': {
 							color: 'var(--tw-prose-body)'
+							//color: '#2071ad'
 						},
 						'ul > li::marker': {
 							color: 'var(--tw-prose-body)'
