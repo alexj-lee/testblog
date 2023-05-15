@@ -286,8 +286,6 @@ export async function listBlogposts() {
 
 export const slugFromPath = (path) => path.match(/([\w-]+)\.(svelte\.md|md|svx)/i)?.[1] ?? null;
 
-
-
 export async function getPost(slug) {
 	const post = await import(`../routes/content/${slug}.md`);
 	const content = post.default.render().html
