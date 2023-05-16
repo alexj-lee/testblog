@@ -80,7 +80,7 @@
 		<!-- Github -->
 		<a
 			class="rounded-lg text-gray-700 hover:bg-yellow-200 dark:text-gray-200
-			dark:hover:bg-yellow-800"
+			dark:hover:bg-cameopink"
 			href="https://github.com/alexj-lee"
 			aria-label="GitHub source"
 		>

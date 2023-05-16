@@ -1,5 +1,5 @@
 
-import uFuzzy from '@leeoniya/ufuzzy'
+import uFuzzy from '@leeoniya/ufuzzy';
 
 // https://github.com/leeoniya/uFuzzy#options
 const u = new uFuzzy({ intraMode: 1 });
@@ -50,26 +50,30 @@ function _fuzzySearch(items, selectedCategories, search) {
       [
         v.title,
         // v.subtitle,
-        v.tags.map((tag) => 'hashtag-' + tag), // add #tag so as to enable tag search
         v.md.html,
-        v.description
+        v.description,
+        v.tags.map((tag) => 'hashtag-' + tag), // add #tag so as to enable tag search
+
       ].join(' ')
     );
-    console.log('haystack', haystack);
-    console.log('---end---')
+    // console.log('haystack', haystack);
+    // console.log('---end---')
 
     const idxs = u.filter(haystack, search);
     const info = u.info(idxs, haystack, search);
     const order = u.sort(info, haystack, search);
-    const mark = (part, matched) => matched ? '<b style="color:var(--brand-accent)">' + part + '</b>' : part;
+    //const mark = (part, matched) => matched ? '<b style="color:#f5f5b8">' + part + '</b>' : part;
+    const mark = (part, matched) => matched ? '<b>' + part + '</b>' : part;
+
     const list = order.map(i => {
       const x = filteredItems[info.idx[order[i]]]
+      let filtered_item = haystack[info.idx[order[i]]];
       const hl = uFuzzy.highlight(
         haystack[info.idx[order[i]]]
-          // sanitize html as we dont actually want to render it
           .replaceAll("<", " ")
-          .replaceAll("/>", "  ")
+          .replaceAll("/>", " ")
           .replaceAll(">", " "),
+        // sanitize html as we dont actually want to render it
         info.ranges[order[i]],
         mark
       )
@@ -77,12 +81,14 @@ function _fuzzySearch(items, selectedCategories, search) {
         .slice(Math.max(info.ranges[order[i]][0] - 200, 0), Math.min(info.ranges[order[i]][1] + 200, haystack[info.idx[order[i]]].length))
         // slice clean words
         .split(' ').slice(1, -1).join(' ')
+
+      console.log('hl', hl, 'next', haystack[info.idx[order[i]]])
+      //const x_filt = x.replaceAll("<", " ").replaceAll("/>", " ").replaceAll("<", " ").replaceAll(">", " ")
       return { ...x, highlightedResults: hl }
     })
-    console.log('list is', list);
     return list
   } else {
-    console.log('filtereditems', filteredItems);
+    // console.log('filtereditems', filteredItems);
     return filteredItems
   }
 }

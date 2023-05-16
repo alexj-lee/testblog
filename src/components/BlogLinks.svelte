@@ -9,7 +9,7 @@
 		<div class="inline-block flex w-fit flex-row items-center justify-center rounded-md">
 			{#if Paper.length != 0}
 				<a
-					class="rounded-lg text-gray-700 hover:bg-cameopink dark:hover:bg-cameopink"
+					class="dark:bg-slate rounded-lg text-gray-700 hover:bg-cameopink dark:text-white dark:hover:bg-cameopink"
 					href={Paper}
 					aria-label="Paper link"
 				>
@@ -30,7 +30,7 @@
 				<a
 					href={GitHub}
 					aria-label="GitHub link"
-					class="rounded-lg text-gray-700 hover:bg-cameopink dark:hover:bg-cameopink"
+					class="rounded-lg text-gray-700 hover:bg-cameopink dark:text-white dark:hover:bg-cameopink"
 				>
 					<svg aria-hidden="true" class="h-9 w-9 p-1" fill="currentColor" viewBox="0 0 24 24">
 						<path
@@ -52,7 +52,7 @@
 
 			{#if YouTube.length != 0}
 				<a
-					class="rounded-lg text-gray-700 hover:bg-cameopink dark:text-gray-200
+					class="rounded-lg text-gray-700 hover:bg-cameopink dark:text-white dark:text-gray-200
 dark:hover:bg-cameopink"
 					href={YouTube}
 					aria-label="Youtube"

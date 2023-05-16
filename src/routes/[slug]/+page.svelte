@@ -4,12 +4,10 @@
 
 	import { page } from '$app/stores';
 	import 'prism-themes/themes/prism-shades-of-purple.min.css';
-	import LatestPosts from '../../components/LatestPosts.svelte';
 	// https://svelte-put.vnphanquang.com/docs/toc
 	import { createTocStore, toc } from '@svelte-put/toc';
-	import TableOfContents from './TableOfContents.svelte';
-	import Toc from '../../components/Toc.svelte';
 	import BlogLinks from '../../components/BlogLinks.svelte';
+	import Toc from '../../components/Toc.svelte';
 	// table of contennts
 	const tocStore = createTocStore();
 
@@ -83,9 +81,12 @@
 		{json.title}
 	</h1>
 
-	<div class="flex items-center justify-center"><span> Written: {json.date} </span></div>
+	<div class="flex items-center justify-center">
+		<span> Written: {json.date} by {json.author}</span>
+	</div>
 
 	<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
+
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
 	>

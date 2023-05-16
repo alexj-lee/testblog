@@ -169,7 +169,7 @@
 						{#if item.highlightedResults}
 							<span class="italic">
 								{@html item.highlightedResults}
-							</span>
+								</span>
 						{:else}
 							{item.description}
 						{/if}

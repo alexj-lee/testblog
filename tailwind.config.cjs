@@ -56,7 +56,7 @@ module.exports = {
 							textDecoration: 'underline !important'
 						},
 						a: {
-							color: '#2071ad',
+							color: '#ef6c94',
 							textDecoration: 'none'
 						},
 						'a code': {
