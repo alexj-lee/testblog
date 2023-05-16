@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "A short guide to Docker/Singularity for computational biologists"
+title: "A short guide to Docker/Singularity"
 slug: "docker-singularity"
 author: "alex"
 subtitle: "Docker/Singularity how-to"
