@@ -8,7 +8,7 @@
 	// https://svelte-put.vnphanquang.com/docs/toc
 	import { createTocStore, toc } from '@svelte-put/toc';
 	import TableOfContents from './TableOfContents.svelte';
-
+	import Toc from '../../components/Toc.svelte';
 	// table of contennts
 	const tocStore = createTocStore();
 
@@ -69,7 +69,8 @@
 	/>
 </svelte:head>
 
-<TableOfContents {tocStore} />
+<!-- <TableOfContents {tocStore} /> -->
+<Toc />
 
 <article
 	use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
@@ -86,16 +87,29 @@
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
 	>
-		<p class="flex items-center text-sm text-gray-700 dark:text-gray-300">{json.author}</p>
+		<!-- <p class="flex items-center text-sm text-gray-700 dark:text-gray-300">{json.author}</p> -->
 		<p class="flex items-center text-sm text-gray-600 dark:text-gray-400">
 			<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
 				> -->
 		</p>
 	</div>
-	<div
-		class="-mx-4 my-2 flex h-1 w-[100vw] bg-gradient-to-r from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-full"
-	/>
+	<div class="max-w-1/2 grid justify-items-center">
+		<div
+			class=" 
+			h-1
+			w-full max-w-2xl items-center bg-gradient-to-r
+			from-artemesia via-sulphur
+			to-cameopink object-none object-center "
+		/>
+	</div>
+
+	<!-- <div
+		class="max-w-1/8 center -mx-3 
+my-2 flex h-1 w-1 bg-gradient-to-r
+from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
+	/> -->
+
 	{@html json.content}
 </article>
 
@@ -110,7 +124,7 @@
 			{/each}
 		</p>
 	{/if}
-	<div class="prose mb-12 max-w-full border-t border-b border-blue-800 p-4 dark:prose-invert" />
+	<!-- <div class="prose mb-12 max-w-full border-t border-b border-blue-800 p-4 dark:prose-invert" /> -->
 
 	<!-- <LatestPosts items={data.list} /> -->
 </div>

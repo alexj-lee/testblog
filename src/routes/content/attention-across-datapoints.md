@@ -56,7 +56,7 @@ This paper introduces an architecture called nonparametric transformers, or NPT,
   The hope is then to learn functions that can produce a test-time prediction of the form
   $p(\mathbf{y}^*\ |\ \mathbf{x}^*, \mathcal{D}_{train}; \theta)$, schematized in $(c)$ and $(d)$ below. 
   
-<img class="object-none object-center" src="/attention-across-datapoints/figure1.png">
+<img class="object-center object-scale-down" src="/attention-across-datapoints/figure1.png">
 
 ## NPTs take entire datasets as input 
 
