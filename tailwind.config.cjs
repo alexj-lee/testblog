@@ -28,7 +28,7 @@ module.exports = {
 
 						// these customizations are explained here https://youtu.be/-FzemNMcOGs
 						blockquote: {
-							borderLeft: '3px solid red',
+							borderLeft: '3px solid gray',
 							fontSize: 'inherit',
 							fontStyle: 'inherit',
 							fontWeight: 'medium'

@@ -40,9 +40,6 @@ category: Paper
 
 # Introduction 
 
-<br>
-
-
 Supervised DL workflows often utilize some data: $\mathcal{D}_{train} = \{(x_1, y_1), ..., (x_n, y)\}$ to learn a function $f$ that maximizes $p(\mathbf{y}\ |\  \mathbf{x}; \theta)$.
     * these functions produce test-time predictions of the form $p(\mathbf{y}^*\ |\ \mathbf{x}^*; \theta)$ where there is no explicit link between $\mathcal{D}_{train}$ and $\theta$.  
 

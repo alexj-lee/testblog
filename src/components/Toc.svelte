@@ -35,7 +35,7 @@
 	// (re-)query headings on mount and on route changes
 	function requery_headings() {
 		if (typeof document === `undefined`) return; // for SSR safety
-		headings = [...document.querySelectorAll(headingSelector)] as HTMLHeadingElement[];
+		headings = [...document.querySelectorAll(headingSelector)].slice(1, -1) as HTMLHeadingElement[];
 		setActiveHeading();
 	}
 
@@ -97,24 +97,24 @@
 	on:click={close}
 />
 
-<aside class="toc fixed left-4 top-72 max-w-[20em] rounded-xl" bind:this={aside}>
+<aside class="toc fixed top-80 left-4 max-w-[20em] rounded-xl" bind:this={aside}>
 	<div class="invisible flex flex-col text-gray-900 dark:text-gray-100 md:visible">
 		{#if true}
-			<div class="flex pl-5">
-				<span> Contents: <br /> <br /> </span>
+			<div class="flex pl-5 pb-3">
+				<span> Contents: <br /> </span>
 			</div>
 			<nav transition:blur|local>
 				<ul class="inline-block flex-col space-y-0">
 					{#each headings as heading, idx}
 						<li
-							class="ml-1 mb-1 inline-block pl-1 pb-1"
+							class="ml-1 mb-1 block pl-1 pb-1"
 							tabindex={idx + 1}
 							class:active={activeHeading === heading}
 							on:click={clickHandler(heading)}
 						>
 							<slot name="tocItem" {heading} {idx}>
 								{getPrefix(heading)}
-								{getHeadingTitles(heading)}
+								{getHeadingTitles(heading)} <br />
 							</slot>
 						</li>
 						<!-- <div>

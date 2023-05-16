@@ -9,6 +9,7 @@
 	import { createTocStore, toc } from '@svelte-put/toc';
 	import TableOfContents from './TableOfContents.svelte';
 	import Toc from '../../components/Toc.svelte';
+	import BlogLinks from '../../components/BlogLinks.svelte';
 	// table of contennts
 	const tocStore = createTocStore();
 
@@ -84,6 +85,7 @@
 
 	<div class="flex items-center justify-center"><span> Written: {json.date} </span></div>
 
+	<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
 	>
