@@ -68,11 +68,11 @@ In fact, PyTorch itself distributes a group of relatively minimal Docker images 
 
 What we can do, then, is type in at the command line [see [here](https://hub.docker.com/r/pytorch/pytorch/tags) to see the specific versions of the images provided]:
 
-```
-docker pull pytorch/pytorch:latest # the text after the colon indicates the version; 
-# alternatively: 
-# docker pull pytorch/pytorch:1.31.1-cuda11.6-cudnn8-runtime
-```
+
+
+
+
+
 
 NOTE: often Docker is set up to allow specific users to access it by invoking the `docker` command.
 For other situations you may need to prepend `sudo` to the `docker` call--this is one of the reasons that 
