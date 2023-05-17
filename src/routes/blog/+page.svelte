@@ -169,7 +169,7 @@
 				<li class="mb-8 text-lg">
 					<!-- <code class="mr-4">{item.data.date}</code> -->
 					<IndexCard
-						href={item.slug}
+						href="/posts/{item.slug}"
 						title={item.title}
 						stringData={new Date(item.date).toISOString().slice(0, 10)}
 						Metadata={item.metadata}

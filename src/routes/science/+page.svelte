@@ -18,7 +18,7 @@
 		<h1
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
-			Online
+			Online Profiles and CV
 			<span class="inline-block pt-2 text-sm" />
 		</h1>
 
@@ -34,13 +34,13 @@
 				/>
 				<span class="align-middle text-xl">0000-0003-0001-2848</span>
 			</a>
-			<br /> <br />
+			<br />
 		</span>
 
 		<span>
 			<a
 				class="mt-5 text-lg text-gray-700 dark:text-gray-300 md:text-4xl"
-				href="https://orcid.org/0000-0003-0001-2848https://scholar.google.com/citations?user=fMdvjhkAAAAJ&hl=en"
+				href="https://scholar.google.com/citations?user=fMdvjhkAAAAJ&hl=en"
 			>
 				<img
 					class="my-0 inline-block h-7 w-7 bg-transparent py-0"
@@ -48,6 +48,21 @@
 					src="Google_Scholar_logo.svg"
 				/>
 				<span class="align-middle text-xl">Google Scholar</span>
+			</a>
+			<br />
+		</span>
+
+		<span>
+			<a
+				class="mt-5 text-lg text-gray-700 dark:text-gray-300 md:text-4xl"
+				href="AlexLeeCV-20230517.pdf"
+			>
+				<img
+					class="mx-0 my-0 inline-block h-7 w-7 bg-transparent py-0"
+					alt="PDF icon"
+					src="PDF_file_icon.svg"
+				/>
+				<span class="align-middle text-xl">CV</span>
 			</a>
 			<br /> <br />
 		</span>
