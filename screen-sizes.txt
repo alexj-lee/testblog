@@ -1,0 +1,2 @@
+ipad 768x1024
+phone 

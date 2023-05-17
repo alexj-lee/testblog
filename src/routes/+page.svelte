@@ -65,7 +65,7 @@
 
 				<div>
 					<img
-						in:fade={{ delay: 1200, duration: 3000 }}
+						in:fade={{ delay: 1200, duration: 2500 }}
 						src="/1jrj-d80_minsize.webp"
 						alt="A video of a protein wiggling around."
 						class="block
