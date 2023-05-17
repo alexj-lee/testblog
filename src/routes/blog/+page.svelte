@@ -2,9 +2,10 @@
 	// import { browser } from '$app/environment';
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
-	import { queryParam, ssp } from 'sveltekit-search-params';
-
+	import { onMount } from 'svelte';
 	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
+	import { fly } from 'svelte/transition';
+	import { queryParam, ssp } from 'sveltekit-search-params';
 
 	import IndexCard from '../../components/IndexCard.svelte';
 	// import MostPopular from './MostPopular.svelte';
@@ -79,6 +80,11 @@
 	// let POST_CATEGORIES = [];
 	// .slice(0, isTruncated ? 2 : items.length);
 	// console.log('loaded is', loaded);
+	let mounted = false;
+	let postCount;
+	onMount(() => (postCount = items.length));
+	
+	//let postCount = items?.length;
 </script>
 
 <svelte:head>
@@ -88,14 +94,16 @@
 
 <svelte:window on:keyup={focusSearch} />
 
-<section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center
-			 px-4 sm:px-8">
+<section
+	class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center
+			 px-4 sm:px-8"
+>
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		{SITE_TITLE} posts
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
-		In total, I've written {items.length} articles on my blog. Use the search below to filter by title.
-		So far, this page doesn't have much in it yet.
+		In total, I've written <span in:fly={{ y: -20 }}>{items.length}</span> articles on my blog. Use the
+		search below to filter by title. So far, this page doesn't have much in it yet.
 	</p>
 	<div class="relative mb-4 w-full">
 		<input
@@ -170,7 +178,7 @@
 						{#if item.highlightedResults}
 							<span class="italic">
 								{@html item.highlightedResults}
-								</span>
+							</span>
 						{:else}
 							{item.description}
 						{/if}
