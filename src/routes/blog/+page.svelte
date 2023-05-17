@@ -88,7 +88,8 @@
 
 <svelte:window on:keyup={focusSearch} />
 
-<section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center px-4 sm:px-8">
+<section class="mx-auto mb-16 flex max-w-2xl flex-col items-start justify-center
+			 px-4 sm:px-8">
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
 		{SITE_TITLE} posts
 	</h1>
