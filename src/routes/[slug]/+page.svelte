@@ -3,7 +3,7 @@
 	// import Comments from '../../components/Comments.svelte';
 
 	import { page } from '$app/stores';
-	import 'prism-themes/themes/prism-shades-of-purple.min.css';
+	import 'prism-themes/themes/prism-nord.min.css';
 	// https://svelte-put.vnphanquang.com/docs/toc
 	import { createTocStore, toc } from '@svelte-put/toc';
 	import BlogLinks from '../../components/BlogLinks.svelte';

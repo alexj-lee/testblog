@@ -47,10 +47,14 @@ module.exports = {
 							padding: '0.15rem 0.3rem',
 							borderWidth: '2px',
 							borderColor: 'rgba(0,0,0,0.1)',
+							backgroundColor: 'rgba(0,0,0,0.1)',
 						},
 						pre: {
 							'border-radius': '0rem',
 							'white-space': 'break-spaces',
+						},
+						'pre:code': {
+							color: '#65a98f',
 						},
 						'a:hover': {
 							color: '#31cdce !important',
