@@ -6,7 +6,7 @@ author: "alex"
 description: "A paper notes sum al. 2022. elephant"
 subtitle: "something"
 date: "2022-01-01"
-published: true
+published: false
 tags: 
     - ml
     - paper
@@ -18,7 +18,7 @@ category: Note
 
 # What are Docker and Singularity/Apptainer?
 
-Note: this is a guide I made for a student I was TA'ing for, and I thought it might be useful to others. I tried to make it relatively comprehensive, but it is not meant to be a complete guide and the language is meant to not be really, really technical.
+> Note: this is a guide I made for a student I was TA'ing for, and I thought it might be useful to others. I tried to make it relatively comprehensive, but it is not meant to be a complete guide and the language is meant to not be really, really technical.
 
 The main idea of these softwares, which are referred to as *containerization* softwares, is to encapsulate a programming environment in a single file.
 
@@ -68,17 +68,16 @@ In fact, PyTorch itself distributes a group of relatively minimal Docker images 
 
 What we can do, then, is type in at the command line [see [here](https://hub.docker.com/r/pytorch/pytorch/tags) to see the specific versions of the images provided]:
 
-
-
-
-
-
+```
+docker pull pytorch/pytorch:latest # the text after the colon indicates the version; 
+# alternatively: 
+# docker pull pytorch/pytorch:1.31.1-cuda11.6-cudnn8-runtime
+```
 
 NOTE: often Docker is set up to allow specific users to access it by invoking the `docker` command.
 For other situations you may need to prepend `sudo` to the `docker` call--this is one of the reasons that 
 HPC clusters prefer to use Singularity. For this document I will just save space by not prepending the `sudo` but note that you may need it in practice. 
 
 When we do this, we get an output that looks like: 
-
 
 

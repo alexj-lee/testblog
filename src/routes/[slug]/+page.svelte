@@ -73,10 +73,10 @@
 
 <article
 	use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-5xl items-start justify-center dark:prose-invert"
+	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justify-center dark:prose-invert"
 >
 	<h1
-		class="mb-8 text-3xl font-bold tracking-tight text-black dark:text-white md:text-center md:text-5xl "
+		class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
 	>
 		{json.title}
 	</h1>

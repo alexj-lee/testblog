@@ -1,7 +1,5 @@
 import { slugFromPath } from '$lib/content.js';
 import { json } from '@sveltejs/kit';
-import { compile } from 'mdsvex';
-
 // /** @type {import('@sveltejs/kit').RequestHandler} */
 // export async function GET({ url }) {
 // 	/** const modules = import.meta.glob('/content/*.{md,svx,svelte.md}'); */
@@ -61,8 +59,10 @@ export async function GET({ url }) {
 			const resolvedPost = await resolver();
 			const body = resolvedPost.default.render(); // this is the compiled HTML
 			const slug = slugFromPath(path);
+			//const md2 = await compile(body.html, { remarkPlugins, rehypePlugins });
 			// const md = await compile(body.html, { remarkPlugins, rehypePlugins });
 			//console.log(md);
+			//md2.html = md2.code;
 			const metadata = resolvedPost.metadata;
 			//console.log(metadata.category);
 
@@ -74,11 +74,12 @@ export async function GET({ url }) {
 				//...metadata,
 				// body: body,
 				md: body,
+				//md2: md2,
 			};
 		})
 	);
 	//console.log(allPosts);
-	
+
 	const sortedPosts = allPosts.sort((a, b) => {
 		return new Date(b.date) > new Date(a.date);
 	})

@@ -14,9 +14,9 @@ category: Note
 
 <br>
 
-# What are Docker and Singularity/Apptainer?
+> Note: this is a guide I made for a student I was TA'ing for, and I thought it might be useful to others. I tried to make it relatively comprehensive, but it is not meant to be a complete guide and the language is meant to not be really, really technical.
 
-Note: this is a guide I made for a student I was TA'ing for, and I thought it might be useful to others. I tried to make it relatively comprehensive, but it is not meant to be a complete guide and the language is meant to not be really, really technical.
+# What are Docker and Singularity/Apptainer?
 
 The main idea of these softwares, which are referred to as *containerization* softwares, is to encapsulate a programming environment in a single file.
 
@@ -78,11 +78,11 @@ HPC clusters prefer to use Singularity. For this document I will just save space
 
 When we do this, we get an output that looks like: 
 
-![Output of docker pull command](assets/pytorchpull.png "Output of docker pull command")  
+![Output of docker pull command](docker-singularity/pytorchpull.png "Output of docker pull command")  
 
 And we can then run a new command, `docker images`, which gives output shown in Figure 2 below. 
 
-![Output of docker images command](assets/images.png "Output of docker images command")  
+![Output of docker images command](docker-singularity/dockerimages.png "Output of docker images command")  
 
 Keep in mind that in general if you want to keep track of which images are installed on your computer,
 you can run this command. There are also other commands to keep track of which images are *currently running*, so,
@@ -114,7 +114,7 @@ docker run --rm -it pytorch/pytorch python
 
 This then gives the output in Figure 3.
 
-![Output of interpreter call](assets/interpreter.png "Output of Python interpreter call")
+![Output of interpreter call](docker-singularity/interpreter.png "Output of Python interpreter call")
 
 So this is great, because we are clearly running the commands inside the container!
 If we want to use CUDA in the image, we need to install some new software found at: [https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html#docker)  
@@ -122,7 +122,7 @@ If we want to use CUDA in the image, we need to install some new software found 
 
 And if we do this, and follow the command, we can see that we get the right output that CUDA is available (Figure 4). 
 
-![Output of interpreter call](assets/cuda-interp.png "Output of Python interpreter call with NVIDIA flags prepended")
+![Output of interpreter call](docker-singularity/cuda-interp.png "Output of Python interpreter call with NVIDIA flags prepended")
 
 We can run a `Python` program by calling: `docker run --rm pytorch/pytorch python [someprogram]` (notice I omitted the `-it` because we are not interested in running anything interactively.)  
 
@@ -139,7 +139,7 @@ docker run --rm -it 71eb2d092138 [SOMECOMMAND] # this is the "image id"
 ```
 
 An important note is that the Docker images actually located in `/var/lib/docker/images`  by default, but
-accessing the actual files themselves can be sort of complex (in case you might want to send someone else a Docker image). 
+accessing the actual files themselves can be sort of complex--although is possible by transmitting a `.tar` file (ex: `docker save -o pytorch.tar pytorch/pytorch` and `docker load --input pytorch.tar` | `docker load < pytorch.tar`). 
 In general if you want to try to send Docker images from one computer to another you might prefer to use a Singularity image, or to transmit the 
 Dockerfile, or the "recipe" to build a Docker image (more on that later).
 
@@ -155,7 +155,7 @@ So, what Docker allows you to do is mount volumes using the `-v` flag. Note that
 
 If we wanted to access the `datafile.txt` file, what we would do is then run something like:
 
-![Output of `cat` after mounting volume](assets/volume-mount.png "Output of `cat` after mounting volume")
+![Output of `cat` after mounting volume](docker-singularity/volume-mount.png "Output of `cat` after mounting volume")
 
 The syntax of the `-v` command is to have a source and destination mount volume path on either side of a colon.
 So, in this example, what we are saying is to mount `/work-files` at the location `/work-files` inside the container. 

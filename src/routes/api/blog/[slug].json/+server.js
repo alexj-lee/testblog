@@ -52,3 +52,4 @@ export async function GET({ fetch, params }) {
 		throw error(404, err.message);
 	}
 }
+

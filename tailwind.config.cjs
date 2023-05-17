@@ -46,10 +46,11 @@ module.exports = {
 							'border-radius': '0.25rem',
 							padding: '0.15rem 0.3rem',
 							borderWidth: '2px',
-							borderColor: 'rgba(0,0,0,0.1)'
+							borderColor: 'rgba(0,0,0,0.1)',
 						},
 						pre: {
 							'border-radius': '0rem',
+							'white-space': 'break-spaces',
 						},
 						'a:hover': {
 							color: '#31cdce !important',

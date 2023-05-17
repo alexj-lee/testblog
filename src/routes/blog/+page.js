@@ -10,6 +10,12 @@ export async function load({ setHeaders, fetch }) {
 
 	/** /** @type {import('$lib/types').ContentItem[]} */
 	var items = await res.json();
-	
+	// console.log('im here alex');
+	// console.log(typeof items);
+	// console.log(items[0])
+
+
+	items = items.filter(item => { return item.published == true });
+
 	return { items };
 }
