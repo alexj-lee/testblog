@@ -14,20 +14,44 @@
 <div
 	class="mx-auto flex max-w-2xl flex-col items-start justify-center border-gray-200 px-4 pb-16 text-gray-900 dark:border-gray-700 dark:text-gray-400 sm:px-8"
 >
-	<span>
-		<a
-			class="mt-5 text-3xl text-gray-700 dark:text-gray-300 md:text-4xl"
-			href="https://orcid.org/0000-0003-0001-2848"
+	<div>
+		<h1
+			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
-			<img
-				class="mx- my-0 inline-block h-9 w-9 bg-transparent py-0"
-				alt="ORCIDiD icon"
-				src="ORCIDiD_iconvector.svg"
-			/>
-			<span class="align-middle">0000-0003-0001-2848</span>
-		</a>
-		<br /> <br />
-	</span>
+			Online
+			<span class="inline-block pt-2 text-sm" />
+		</h1>
+
+		<span>
+			<a
+				class="mt-5 text-lg text-gray-700 dark:text-gray-300 md:text-4xl"
+				href="https://orcid.org/0000-0003-0001-2848"
+			>
+				<img
+					class="mx-0 my-0 inline-block h-7 w-7 bg-transparent py-0"
+					alt="ORCIDiD icon"
+					src="ORCIDiD_iconvector.svg"
+				/>
+				<span class="align-middle text-xl">0000-0003-0001-2848</span>
+			</a>
+			<br /> <br />
+		</span>
+
+		<span>
+			<a
+				class="mt-5 text-lg text-gray-700 dark:text-gray-300 md:text-4xl"
+				href="https://orcid.org/0000-0003-0001-2848https://scholar.google.com/citations?user=fMdvjhkAAAAJ&hl=en"
+			>
+				<img
+					class="my-0 inline-block h-7 w-7 bg-transparent py-0"
+					alt="Google Scholar SVG"
+					src="Google_Scholar_logo.svg"
+				/>
+				<span class="align-middle text-xl">Google Scholar</span>
+			</a>
+			<br /> <br />
+		</span>
+	</div>
 
 	<div class="">
 		<h1
