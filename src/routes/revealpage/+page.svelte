@@ -2,8 +2,8 @@
 	// const item = fs.readFile('static/identifiability-vae-presentation/idvae.html', { encoding: 'utf-8' });
 	// export let data;
 	// $: items = data.items;
-	import Reveal from 'reveal.js';
-	import { onMount, tick } from 'svelte';
+	// import Reveal from 'reveal.js';
+	// import { onMount, tick } from 'svelte';
 
 	let document = `
 	<div class="reveal">
@@ -36,12 +36,12 @@
 			</section>
 		</div>
 		`;
-	onMount(async () => {
-		await tick();
+	// onMount(async () => {
+	// 	await tick();
 
-		const deck = new Reveal();
-		deck.initialize();
-	});
+	// const deck = new Reveal();
+	// deck.initialize();
+	// });
 </script>
 
 something
