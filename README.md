@@ -12,3 +12,7 @@ Based on a lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) 
   - [ x ] remove About from bottom nav bar
   - sanitize HTML from search bar and allow more granular search
 
+## For svelte rendering:
+- I think I can just use something like: https://github.com/huijing/slides and just use this strategy: https://svelte.dev/repl/32f4d35f41eb4914aa3be5e4a0eacbfa?version=3.59.1
+
+I think what I need to do here is create a separate api to load the reveal files and then access that from the load() function in page.js
