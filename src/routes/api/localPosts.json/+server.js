@@ -80,9 +80,11 @@ export async function GET({ url }) {
 	);
 	//console.log(allPosts);
 
-	const sortedPosts = allPosts.sort((a, b) => {
+	var sortedPosts = allPosts.sort((a, b) => {
 		return new Date(b.date) > new Date(a.date);
 	})
+
+	sortedPosts = sortedPosts.filter(item => item.published == true);
 
 	return json(sortedPosts);
 
