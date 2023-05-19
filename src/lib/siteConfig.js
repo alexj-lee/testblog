@@ -4,7 +4,7 @@ export const GH_USER_REPO = 'sw-yx/swyxkit'; // used for pulling github issues a
 export const SITE_TITLE = 'alexblog';
 export const SITE_DESCRIPTION = "a blog of alex";
 export const DEFAULT_OG_IMAGE =
-	'bannerpage.png';
+	'https://user-images.githubusercontent.com/69220428/239652125-ca8f5501-0364-4be7-bc25-9af9adcbc689.png';
 export const MY_TWITTER_HANDLE = 'eel__xela';
 export const MY_YOUTUBE = 'https://youtube.com/swyxTV';
 export const POST_CATEGORIES = ['Paper', 'Note']; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...

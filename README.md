@@ -1,5 +1,7 @@
 # alexblog
 
+![image of page](https://user-images.githubusercontent.com/69220428/239652125-ca8f5501-0364-4be7-bc25-9af9adcbc689.png)
+
 Based on a lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
 
 ## TODO:
