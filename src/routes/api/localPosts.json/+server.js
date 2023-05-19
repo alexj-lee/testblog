@@ -50,6 +50,8 @@ const rehypePlugins = [
 	rehypeKatex
 ];
 
+export const prerender = true;
+
 export async function GET({ url }) {
 	const modules = import.meta.glob('/src/routes/content/*.{md,svx,svelte.md}');
 	const iterablePostFiles = Object.entries(modules);
