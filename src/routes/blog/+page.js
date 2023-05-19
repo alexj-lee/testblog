@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 export const prerender = true;
 
-export async function load({ setHeaders, fetch }) {
+export async function load({ fetch }) {
 	const res = await fetch(`/api/localPosts.json`);
 	// alternate strategy https://www.davidwparker.com/posts/how-to-make-an-rss-feed-in-sveltekit
 	// Object.entries(import.meta.glob('./*.md')).map(async ([path, page]) => {
