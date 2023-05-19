@@ -45,6 +45,7 @@ function _fuzzySearch(items, selectedCategories, search) {
       })
       .includes(item.category.toLowerCase());
   })
+  
   if (search) {
     const haystack = filteredItems.map((v) =>
       [

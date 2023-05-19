@@ -87,6 +87,7 @@ export async function GET({ url }) {
 	})
 
 	sortedPosts = sortedPosts.filter(item => item.published == true);
+	// sortedPosts = sortedPosts.map(item => item.published = String(item.published))
 
 	return json(sortedPosts);
 

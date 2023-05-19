@@ -2,8 +2,8 @@
 	// import { browser } from '$app/environment';
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
-	import { onMount } from 'svelte';
 	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
+	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { queryParam, ssp } from 'sveltekit-search-params';
 
@@ -83,7 +83,7 @@
 	let mounted = false;
 	let postCount;
 	onMount(() => (postCount = items.length));
-	
+
 	//let postCount = items?.length;
 </script>
 
@@ -105,6 +105,7 @@
 		In total, I've written <span in:fly={{ y: -20 }}>{items.length}</span> articles on my blog. Use the
 		search below to filter by title. So far, this page doesn't have much in it yet.
 	</p>
+
 	<div class="relative mb-4 w-full">
 		<input
 			aria-label="Search articles"
