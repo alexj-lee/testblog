@@ -102,8 +102,8 @@
 		{SITE_TITLE} posts
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
-		In total, I've written <span in:fly={{ y: -20 }}>{items.length}</span> articles on my blog. Use the
-		search below to filter by title. So far, this page doesn't have much in it yet.
+		In total, I've written <span in:fly={{ y: -20, delay: 500 }}>{items.length}</span> articles on my
+		blog. Use the search below to filter by title. So far, this page doesn't have much in it yet.
 	</p>
 
 	<div class="relative mb-4 w-full">

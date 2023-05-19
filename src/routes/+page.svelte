@@ -13,7 +13,7 @@
 	export let data;
 	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	/** @type {import('$lib/types').ContentItem[]} */
-	$: items = data.items;
+	// $: items = data.items;
 
 	let mounted = false;
 	onMount(() => (mounted = true));
