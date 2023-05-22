@@ -16,6 +16,7 @@ export type ContentItem = {
 	readingTime: string;
 	ghMetadata: GHMetadata;
 	published: boolean;
+	md: string;
 };
 
 export type GHMetadata = {

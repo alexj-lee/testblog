@@ -43,6 +43,9 @@
 		<li>
 			<NavLink href="/science">Science</NavLink>
 		</li>
+		<li>
+			<NavLink href="/snippets">Snippets</NavLink>
+		</li>
 		<!-- <li>
 			<a
 				class="hidden rounded-lg p-1 text-gray-800 transition-all hover:bg-yellow-200 dark:text-gray-200 dark:hover:bg-yellow-800 sm:px-3 sm:py-2 md:inline-block"

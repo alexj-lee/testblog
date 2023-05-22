@@ -97,6 +97,7 @@
 				> -->
 		</p>
 	</div>
+	
 	<div class="max-w-1/2 grid justify-items-center">
 		<div
 			class=" 
