@@ -1,7 +1,47 @@
 <script>
+	import { page } from '$app/stores';
+	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
+
 	export let data;
 	$: json = data.json;
+	$: canonical = json?.canonical ? json.canonical : SITE_URL + $page.url.pathname;
+	$: image =
+		json?.image ||
+		`https://og.tailgraph.com/og
+															?fontFamily=Roboto
+															&title=${encodeURIComponent(json?.title)}
+															&titleTailwind=font-bold%20bg-transparent%20text-7xl
+															&titleFontFamily=Poppins
+															${json?.subtitle ? '&text=' + encodeURIComponent(json?.subtitle) : ''}
+															&textTailwind=text-2xl%20mt-4
+															&logoTailwind=h-8
+															&bgUrl=https%3A%2F%2Fwallpaper.dog%2Flarge%2F20455104.jpg
+															&footer=${encodeURIComponent(SITE_URL)}
+															&footerTailwind=text-teal-900
+															&containerTailwind=border-2%20border-orange-200%20bg-transparent%20p-4
+															`.replace(/\s/g, ''); // remove whitespace
 </script>
+
+<svelte:head>
+	<title>{json.title}</title>
+	<!-- reference: https://gist.github.com/whitingx/3840905 -->
+
+	<link rel="canonical" href={canonical} />
+	<meta property="og:url" content={canonical} />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content={json.title} />
+	{#if json.subtitle}
+		<meta property="subtitle" content={json.subtitle} />
+	{/if}
+	<meta name="Description" content={json.description || 'swyxkit blog'} />
+	<meta property="og:description" content={json.description || 'swyxkit blog'} />
+	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
+	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
+	<meta name="twitter:title" content={json.title} />
+	<meta name="twitter:description" content={json.description} />
+	<meta property="og:image" content={image} />
+	<meta name="twitter:image" content={image} />
+</svelte:head>
 
 <article
 	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justify-center dark:prose-invert"

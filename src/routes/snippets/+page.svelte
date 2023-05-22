@@ -3,6 +3,7 @@
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
 	import { SITE_TITLE } from '$lib/siteConfig';
+	import 'prism-themes/themes/prism-nord.min.css';
 	import { queryParam, ssp } from 'sveltekit-search-params';
 	import FeatureCard from '../../components/FeatureCard.svelte';
 

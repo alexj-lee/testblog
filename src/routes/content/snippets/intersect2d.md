@@ -27,7 +27,6 @@ def intersect2d(a: np.ndarray, b: np.ndarray):
 		}
 	return np.intersect1d(a.view(dtype), b.view(dtype))
 
-
 A = np.array([[1,4],[2,5],[3,6]])
 B = np.array([[1,4],[3,6],[7,8]])
 
