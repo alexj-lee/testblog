@@ -31,7 +31,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 			let entry;
 			if (myName == null) {
-				entry = item.replace('and others', 'and others (plus me!)')
+				entry = item.replace('and others', 'and others <span class="font-bold dark:text-white"> (plus me!) </span>')
 
 			}
 			else {

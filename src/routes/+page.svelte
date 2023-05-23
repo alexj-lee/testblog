@@ -16,11 +16,8 @@
 	/** @type {import('$lib/types').ContentItem[]} */
 	// $: items = data.items;
 
-
 	let mounted = false;
 	onMount(() => (mounted = true));
-
-
 </script>
 
 <svelte:head>
@@ -62,24 +59,26 @@
 				<h2 in:fade={{ delay: 600, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
 					And this is my personal blog. I'm currently a grad student in the Abbasi lab at UCSF, and
 					previously worked in the Seeley lab and at a startup called Nano Precision Medical.
-					
-					<br /> <br /> Please enjoy this image of a protein wiggling around, PDB ID
-					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
 				</h2>
 
-				<div>
-					<img
-						in:fade={{ delay: 1200, duration: 2500 }}
-						src="/1jrj-d80_minsize.webp"
-						alt="A video of a protein wiggling around."
-						class="block
+				<h2 in:fade={{ delay: 900, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
+					Please enjoy this image of a protein wiggling around, PDB ID
+					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
+
+					<div>
+						<img
+							in:fade={{ delay: 1200, duration: 2500 }}
+							src="/1jrj-d80_minsize.webp"
+							alt="A video of a protein wiggling around."
+							class="block
 						max-w-sm scale-100
 						bg-transparent opacity-90 brightness-125 dark:bg-transparent
 						dark:opacity-100
 						dark:brightness-110
 						"
-					/>
-				</div>
+						/>
+					</div>
+				</h2>
 			</div>
 
 			<!-- <div
