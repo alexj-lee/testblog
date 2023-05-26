@@ -51,10 +51,9 @@ def get_extreme_k_elements(arr: np.ndarray, k: int, sort: bool = True, top: bool
 
 	return indices
 
-
-
-	
-
-
-	
+A = np.array([20, 40, 10, 60, 80, 0.1, -10])
+print(A[get_extreme_k_elements(A, 3, top=True)])
+# [80. 60. 40.]
+print(A[get_extreme_k_elements(A, 3, top=False)])
+# [-10.   0.   0.1]
 ```
