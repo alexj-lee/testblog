@@ -61,13 +61,13 @@
 					previously worked in the Seeley lab and at a startup called Nano Precision Medical.
 				</h2>
 
-				<h2 in:fade={{ delay: 900, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
+				<h2 in:fade={{ delay: 1400, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
 					Please enjoy this image of a protein wiggling around, PDB ID
 					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
 
 					<div>
 						<img
-							in:fade={{ delay: 1200, duration: 2500 }}
+							in:fade={{ delay: 2200, duration: 2500 }}
 							src="/1jrj-d80_minsize.webp"
 							alt="A video of a protein wiggling around."
 							class="block

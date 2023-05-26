@@ -12,7 +12,7 @@ export type ContentItem = {
 	image: string;
 	canonical: string;
 	slug: string;
-	date: Date;
+	date: string;
 	readingTime: string;
 	ghMetadata: GHMetadata;
 	published: boolean;

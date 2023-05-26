@@ -97,8 +97,14 @@
 	on:click={close}
 />
 
-<aside class="toc fixed top-80 left-4 max-w-[20em] rounded-xl" bind:this={aside}>
-	<div class="invisible flex flex-col text-gray-900 dark:text-gray-100 lg:visible">
+<aside
+	class="toc fixed top-[16rem] left-2 max-w-[20em] 
+	overflow-x-hidden overflow-y-scroll
+	rounded-xl"
+	bind:this={aside}
+>
+	<div class="invisible flex flex-col 
+	text-gray-900 dark:text-gray-100 xl:visible">
 		{#if true}
 			<div class="flex pl-5 pb-3">
 				<span> Contents: <br /> </span>

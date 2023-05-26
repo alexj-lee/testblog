@@ -10,12 +10,16 @@ export async function load({ fetch }) {
 
 	/** /** @type {import('$lib/types').ContentItem[]} */
 	var items = await res.json();
-	// console.log('im here alex');
-	// console.log(typeof items);
-	// console.log(items[0])
 
+	// items = items.filter(item => { return item.published == true });
+	// items = items.sort((a, b) => { return parseInt(b.Slice(0, 4)) - parseInt(a.Slice(0, 4)) })
 
-	items = items.filter(item => { return item.published == true });
+	// items.sort(function compare(a, b) {
+	// 	var dateA = new Date(a.date);
+	// 	var dateB = new Date(b.date);
+	// 	return dateB - dateA;
+	// })
 
+	// items.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 	return { items };
 }
