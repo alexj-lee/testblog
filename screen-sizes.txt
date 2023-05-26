@@ -1,2 +1,2 @@
 ipad 768x1024
-phone 
+phone (pixel) 412x915

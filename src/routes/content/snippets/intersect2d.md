@@ -16,6 +16,7 @@ lists of indices. So, for example, if you have two vectors of booleans you might
 ### Credit: User Joe Kington [[StackOverflow]](https://stackoverflow.com/questions/8317022/get-intersecting-rows-across-two-2d-numpy-arrays)
 
 ```py
+import numpy as np
 def intersect2d(a: np.ndarray, b: np.ndarray):
 	if not (a.shape == b.shape):
 		raise TypeError("a and b must have the same shape.")

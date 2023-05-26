@@ -161,11 +161,11 @@
 			All Posts
 		</h3>
 	{/if} -->
-
 	{#if list?.length}
-		{#each list as item}
-			<!-- <code class="mr-4">{item.data.date}</code> -->
-			<!-- <IndexCard
+		<div class="grid grid-cols-2 gap-1 lg:grid-cols-3 lg:gap-2">
+			{#each list as item}
+				<!-- <code class="mr-4">{item.data.date}</code> -->
+				<!-- <IndexCard
 				href="/posts/{item.slug}"
 				title={item.title}
 				stringData={new Date(item.date).toISOString().slice(0, 10)}
@@ -181,14 +181,24 @@
 				{/if}
 			</IndexCard> -->
 
-			<FeatureCard
-				href="/snippets/{item.slug}"
-				title={item.title}
-				stringData={new Date(item.date).toISOString().slice(0, 10)}
-			/>
-		{/each}
+				<FeatureCard
+					href="/snippets/{item.slug}"
+					title={item.title}
+					stringData={new Date(item.date).toISOString().slice(0, 10)}
+				/>
+				<FeatureCard
+					href="/snippets/{item.slug}"
+					title={item.title}
+					stringData={new Date(item.date).toISOString().slice(0, 10)}
+				/>
+				<FeatureCard
+					href="/snippets/{item.slug}"
+					title={item.title}
+					stringData={new Date(item.date).toISOString().slice(0, 10)}
+				/>
+			{/each}
 
-		<!-- {#if isTruncated}
+			<!-- {#if isTruncated}
 			<div class="flex justify-center">
 				<button
 					on:click={() => (isTruncated = false)}
@@ -206,5 +216,6 @@
 		<button class="bg-slate-500 p-2" on:click={() => ($search = '')}>Clear your search</button>
 	{:else}
 		<div class="prose dark:prose-invert">No blogposts found!</div> -->
+		</div>
 	{/if}
 </section>

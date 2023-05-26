@@ -6,9 +6,10 @@
 </script>
 
 <a
-	class="w-full
-	transform rounded-xl bg-gradient-to-r from-artemesia via-sulphur 
-	to-cameopink p-1 transition-all hover:scale-[1.01] md:w-1/3"
+	class="transform rounded-xl bg-gradient-to-r 
+	from-artemesia via-sulphur 
+	to-cameopink p-1 transition-all 
+	hover:scale-[1.01] md:w-full"
 	{href}
 	><div
 		class="flex h-full

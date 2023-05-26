@@ -2,14 +2,14 @@
 /** @type {import('./$types').PageLoad} */
 export async function load({ params, fetch, setHeaders }) {
 	const slug = params.slug;
+	console.log('slug', slug);
 	let [pageData, listData] = await Promise.all([
 		fetch(`/api/snippets.json`),
 		//fetch(`/api/localPosts.json`)
 	])
 
 	let json = await pageData.json();
-	json.filter(item => item.slug === slug);
-	console.log(json[0].title);
+	json = json.filter(item => item.slug === slug);
 	//console.log(Object.keys(params));
 
 	//Object.assign(json, { date: '1999-0901' });
