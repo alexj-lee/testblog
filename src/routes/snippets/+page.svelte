@@ -186,16 +186,6 @@
 					title={item.title}
 					stringData={new Date(item.date).toISOString().slice(0, 10)}
 				/>
-				<FeatureCard
-					href="/snippets/{item.slug}"
-					title={item.title}
-					stringData={new Date(item.date).toISOString().slice(0, 10)}
-				/>
-				<FeatureCard
-					href="/snippets/{item.slug}"
-					title={item.title}
-					stringData={new Date(item.date).toISOString().slice(0, 10)}
-				/>
 			{/each}
 
 			<!-- {#if isTruncated}
