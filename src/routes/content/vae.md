@@ -44,23 +44,51 @@ Keep in mind for this (for me), the reason we can go from the integral to the ex
 
 However this is more of a definition than an explanation. To better understand why this is actually a good thing to be modeling, let's dig in further: 
 
-<div class="overflow-scroll">
-
-$$
-\begin{align*}
-& \mathrm{log}\ p(\mathbf{x}) &{} = &{}\ \mathrm{log} \int p(\mathbf{x}) \int q_\phi(\mathbf{z} \mid \mathbf{x}) \mathrm{d}\mathbf{z} \\
-& &{} = &{} \int q_\phi (\mathbf{z} \mid \mathbf{x})\ \mathrm{log}\ p(\mathbf{x}) \mathrm{d} \mathbf{z} \quad \text { (Bring evidence in integral) } \\ 
-& &{} = &{}\  \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\mathrm{log}\ p(\mathbf{x}) \right] \quad \text{ Definition of expectation} \\
-\end{align*}
-$$
+<div class="overflow-scroll text-sm">
 
 $$
 \begin{align*}
 & \mathrm{log}\ p(\mathbf{x}) &{} = &{}\ \mathrm{log} \int p(\mathbf{x}) \int q_\phi(\mathbf{z} \mid \mathbf{x}) \mathrm{d}\mathbf{z} && &{} \text{Multiply by}\ 1 \\ 
 & &{} = &{} \int q_\phi (\mathbf{z} \mid \mathbf{x})\ \mathrm{log}\ p(\mathbf{x}) \mathrm{d} \mathbf{z} && &{} \text { Bring evidence in integral} \\ 
-& &{} = &{}\  \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\mathrm{log}\ p(\mathbf{x}) \right] && &{} \text { Definition of expectation} 
+& &{} = &{}\  \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\mathrm{log}\ p(\mathbf{x}) \right] && &{} \text { Definition of expectation} \\
+& &{} = &{}\ \mathbb{E}_{q\phi (\mathbf{z} \mid \mathbf{x})} \left[\mathrm{log} \frac{p(\mathbf{x}, \mathbf{z})}{p(\mathbf{z} \mid \mathbf{x})} \right] && &{} \text { Chain rule of probability} \\
+& &{} = &{}\ \mathbb{E}_{q\phi (\mathbf{z} \mid \mathbf{x})} \left[\mathrm{log} \frac{p(\mathbf{x}, \mathbf{z}) p_\phi (\mathbf{z} \mid \mathbf{x})}{p(\mathbf{z} \mid \mathbf{x}) q_\phi (\mathbf{z} \mid \mathbf{x})} \right] && &{} \text{} \\
+& &{} = &{}\ \mathbb{E}_{q\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{x}, \mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] +  && &{} \text{Split expectation using log rules} \\
+& &{} &{} \quad \mathbb{E}_{q\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{q_\phi(\mathbf{z} \mid \mathbf{x})}{p (\mathbf{z} \mid \mathbf{x})} \right] \\
+& &{} = &{}\ \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{x}, \mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] + && &{} \text{Definition of KL divergence} \\
+& &{} &{}\ \quad\mathcal{D}_{KL}(q_\phi (\mathbf{z} \mid \mathbf{x})\ \Vert\ p(\mathbf{z} \mid \mathbf{x})) \\
+& &{} \geq &{}\ \mathbb{E}_{q\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{x}, \mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] && &{} \text{KL is always greater than 0}
 \end{align*}
 $$
 
+</div>
+
+This is better than our previous formulation for several reasons:
+
+- The evidence, $\mathrm{log}\ p(\mathbf{x})$, is always equal to the ELBO $\mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{x}, \mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right]$ plus the KL divergence between the approximate posterior $q_\phi (\mathbf{z} \mid \mathbf{x})$ and the true posterior $p(\mathbf{z}) \mid \mathbf{x}$. In the first derivation, Jensen's inequality removed this term.
+- The sort of theoretical strength of the of this framework is that we can easily see how we want to match the true posterior $p(\mathbf{z} \mid \mathbf{x})$ with our approximate, $q_\phi(\mathbf{z} \mid \mathbf{x})$ by matching their KL divergence.
+- However, in practice we cannot access the true distribution--but by noticing that the evidence is constant with respect to $\phi$ (because we marginalize out all latents from the joint and so it does not really depend on the model itself, or the $\phi$'s), we can see that any maximization of the ELBO is a minimization of the KL divergence.
+
+## Variational autoencoders
+
+In the default formulation, VAEs maximize the ELBO according to the approach and ideas above. This is *variational* because we approximate for the best $q_\phi$ amongst a family of potential distributions parameterized by $\phi$. To see this, let's split the ELBO term into components to understand them:
+
+<div class="text-sm overflow-scroll">
+
+$$
+\begin{aligned}
+& \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{x}, \mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] &{} = &{}\ \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p_\theta(\mathbf{x} \mid \mathbf{z}) p(\mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] && &{} \text{Chain rule} \\
+& &{} = &{}\ \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log p_\theta (\mathbf{x} \mid \mathbf{z}) \right] + && &{} \\
+& &{} &{} \quad \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log \frac{p(\mathbf{z})}{q_\phi (\mathbf{z} \mid \mathbf{x})} \right] && &{} \text{Split expectation} \\
+& &{} = &{}\ \mathbb{E}_{q_\phi (\mathbf{z} \mid \mathbf{x})} \left[\log p_\theta (\mathbf{x} \mid \mathbf{z}) \right] - && &{} \\
+& &{} &{} \quad \mathcal{D}_{KL}(q_\phi (\mathbf{z} \mid \mathbf{x})\ \Vert\ p(\mathbf{z})) && &{} \text{Definition of KL} 
+\end{aligned}
+$$
 
 </div>
+
+Where we can see the first term is basically a reconstruction (something implemented as MSE, maybe), and the second term is a prior matching term, which encourages the encoder to learn a distribution rather than collapsing into a delta function (on 0, or perhaps on the mean of the distribution).
+
+Usually we chose a multivariate Gaussian for the prior, and a multivariate Gaussian with diagonal covariance for the latents.
+
+<br>
