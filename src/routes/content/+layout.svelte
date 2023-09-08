@@ -12,11 +12,11 @@
 </script>
 
 <svelte:head>
-		<link
+		<!-- <link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
 		crossorigin="anonymous"
-	/>
+	/> -->
 </svelte:head>
 
 

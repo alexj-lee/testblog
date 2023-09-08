@@ -73,7 +73,9 @@
 
 <article
 	use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justify-center dark:prose-invert"
+	class="swyxcontent prose mx-auto mt-16 mb-32 
+	w-full max-w-2xl items-start justify-center 
+	dark:prose-invert "
 >
 	<h1
 		class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
@@ -108,13 +110,18 @@
 		/>
 	</div>
 
+	<div>
+		<br />
+	</div>
 	<!-- <div
 		class="max-w-1/8 center -mx-3 
 my-2 flex h-1 w-1 bg-gradient-to-r
 from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	/> -->
 
+	<div class="inline-block overflow-hidden">
 	{@html json.content}
+	</div>
 </article>
 
 <div class="mx-auto max-w-2xl">
@@ -205,4 +212,5 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	article :global(.token.deleted) {
 		background: #ff000d44;
 	}
+
 </style>

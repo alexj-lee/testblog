@@ -4,8 +4,11 @@ description: "Convert a non-1-sequence per line FASTA to 1-seq-per-line."
 date: "2023-06-09"
 published: true
 tags: 
-    - python
+    - bash
+	- fasta
 ---
+
+<br>
 
 # Credit Pierre Lindenbaum at [Biostars](https://www.biostars.org/p/9262/)
 

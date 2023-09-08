@@ -4,6 +4,9 @@
 
 Based on a lightly opinionated starter for [SvelteKit](https://kit.svelte.dev/) blogs:
 
+## Notes:
+  - use Modern Humanities Association 3rd edition for citations
+
 ## TODO:
 - 2023-05-15: 
   - [ x ] change ToC to be the old one

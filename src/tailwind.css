@@ -158,3 +158,7 @@ article.prose h4::before {
 	margin-top: -0.219em;
 	display: table;
 }
+
+.katex .base {
+	position: relative;
+}

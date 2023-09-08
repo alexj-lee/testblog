@@ -61,11 +61,11 @@
 	<meta property="og:image" content={image} />
 	<meta name="twitter:image" content={image} />
 
-	<link
+	<!-- <link
 		rel="stylesheet"
 		href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
 		crossorigin="anonymous"
-	/>
+	/> -->
 </svelte:head>
 
 <!-- <TableOfContents {tocStore} /> -->
@@ -204,4 +204,9 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	article :global(.token.deleted) {
 		background: #ff000d44;
 	}
+
+	.katex {
+	color: red
+	}
+
 </style>
