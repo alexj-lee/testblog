@@ -6,7 +6,7 @@ author: "alex"
 description: "Some paper notes on diffusion models"
 subtitle: "something"
 date: "2023-06-14"
-published: false
+published: true
 tags: 
     - ml
     - paper
