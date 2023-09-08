@@ -55,7 +55,7 @@
 		<span>
 			<a
 				class="mt-5 text-lg text-gray-700 dark:text-gray-300 md:text-4xl"
-				href="AlexLeeCV-20230517.pdf"
+				href="https://alexj-lee.github.io/cv/cv.pdf"
 			>
 				<img
 					class="mx-0 my-0 inline-block h-7 w-7 bg-transparent py-0"
