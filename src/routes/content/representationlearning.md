@@ -9,7 +9,7 @@ date: "2023-10-18"
 published: true
 tags: 
     - biology
-category: Note
+category: blog
 ---
 
 # What does representation learning in biology even mean?
