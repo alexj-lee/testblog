@@ -4,7 +4,7 @@
 
 	import { page } from '$app/stores';
 	import 'prism-themes/themes/prism-nord.min.css';
-// https://svelte-put.vnphanquang.com/docs/toc
+	// https://svelte-put.vnphanquang.com/docs/toc
 	import { createTocStore } from '@svelte-put/toc';
 	// table of contennts
 	const tocStore = createTocStore();
@@ -67,8 +67,8 @@
 
 <article
 	class="swyxcontent prose mx-auto mt-16 mb-32 
-	w-full max-w-screen-2xl items-start justify-center 
-	dark:prose-invert "
+	w-full max-w-2xl items-start justify-center 
+	dark:prose-invert"
 >
 	<h1
 		class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
@@ -107,7 +107,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	/> -->
 
 	<br />
-	<div class="not-prose h-full w-full max-w-none overflow-hidden">
+	<div class="not-prose h-full w-full overflow-hidden">
 		<iframe
 			class="feature not-prose h-96 max-h-96 w-full max-w-none"
 			frameborder="1px"
@@ -119,5 +119,10 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 
 	<br />
 
-	{@html json.content}
+	<div
+		class="swyxcontent prose inline-block 
+	 max-w-2xl overflow-auto dark:prose-invert"
+	>
+		{@html json.content}
+	</div>
 </article>

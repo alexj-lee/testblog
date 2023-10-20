@@ -67,7 +67,7 @@
 
 <article
 	class="swyxcontent prose mx-auto mt-16 mb-32 
-	w-full max-w-screen-2xl items-start justify-center 
+	w-full max-w-2xl items-start justify-center 
 	dark:prose-invert "
 >
 	<h1
