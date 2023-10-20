@@ -8,6 +8,9 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
+			width: {
+				'128': '32rem',
+			},
 			colors: {
 				'tahiti': '#32b978',
 				'cameopink': '#ef6c94',

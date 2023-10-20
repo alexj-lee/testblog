@@ -10,7 +10,7 @@ published: true
 tags: 
     - ml
     - paper
-category: Note
+category: Paper
 ---
 
 

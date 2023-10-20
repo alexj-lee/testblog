@@ -81,9 +81,6 @@
 				</h2>
 			</div>
 
-			<!-- <div
-				class="w-[80px] h-[80px] rounded-full sm:w-[176px] sm:h-[136px] relative mb-8 sm:mb-0 mr-auto bg-cyan-300 bg-opacity-25"
-			/> -->
 		</div>
 	{/if}
 

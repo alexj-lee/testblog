@@ -16,7 +16,6 @@
 
 	/** @type {import('$lib/types').ContentItem} */
 	$: json = data.json; // warning: if you try to destructure content here, make sure to make it reactive, or your page content will not update when your user navigates
-
 	//export let commentsEl;
 	$: issueNumber = json?.ghMetadata?.issueUrl?.split('/')?.pop();
 
@@ -69,60 +68,115 @@
 </svelte:head>
 
 <!-- <TableOfContents {tocStore} /> -->
-<Toc />
 
-<article
-	use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-	class="swyxcontent prose mx-auto mt-16 mb-32 
+{#if json.layout == 'blog'}
+	<article
+		use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
+		class="swyxcontent prose mx-auto mt-16 mb-32 
 	w-full max-w-2xl items-start justify-center 
 	dark:prose-invert "
->
-	<h1
-		class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
 	>
-		{json.title}
-	</h1>
+		<h1
+			class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
+		>
+			{json.title}
+		</h1>
 
-	<div class="flex items-center justify-center">
-		<span> Written: {json.date} by {json.author}</span>
-	</div>
+		<div class="flex items-center justify-center">
+			<span> Written: {json.date} by {json.author}</span>
+		</div>
 
-	<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
+		<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
 
-	<div
-		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
-	>
-		<!-- <p class="flex items-center text-sm text-gray-700 dark:text-gray-300">{json.author}</p> -->
-		<p class="flex items-center text-sm text-gray-600 dark:text-gray-400">
-			<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
+		<div
+			class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
+		>
+			<!-- <p class="flex items-center text-sm text-gray-700 dark:text-gray-300">{json.author}</p> -->
+			<p class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
 					>{json.ghMetadata.reactions.total_count} reactions</span
 				> -->
-		</p>
-	</div>
+			</p>
+		</div>
 
-	<div class="max-w-1/2 grid justify-items-center">
-		<div
-			class=" 
+		<div class="max-w-1/2 grid justify-items-center">
+			<div
+				class=" 
 			h-1
 			w-full max-w-2xl items-center bg-gradient-to-r
 			from-artemesia via-sulphur
 			to-cameopink object-none object-center "
-		/>
-	</div>
+			/>
+		</div>
 
-	<div>
-		<br />
-	</div>
-	<!-- <div
+		<div>
+			<br />
+		</div>
+		<!-- <div
 		class="max-w-1/8 center -mx-3 
 my-2 flex h-1 w-1 bg-gradient-to-r
 from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	/> -->
 
-	<div class="inline-block overflow-hidden">
-	{@html json.content}
-	</div>
-</article>
+		<div class="inline-block overflow-hidden">
+			{@html json.content}
+		</div>
+	</article>
+	<Toc />
+{:else}
+	<article
+		use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
+		class="swyxcontent prose mx-auto mt-16 mb-32 
+	w-full max-w-2xl items-start justify-center 
+	dark:prose-invert "
+	>
+		<h1
+			class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
+		>
+			{json.title}
+		</h1>
+
+		<div class="flex items-center justify-center">
+			<span> Written: {json.date} by {json.author}</span>
+		</div>
+
+		<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
+
+		<div
+			class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"
+		>
+			<!-- <p class="flex items-center text-sm text-gray-700 dark:text-gray-300">{json.author}</p> -->
+			<p class="flex items-center text-sm text-gray-600 dark:text-gray-400">
+				<!-- <span class="mr-4 font-mono text-xs text-gray-700 text-opacity-70 dark:text-gray-300"
+					>{json.ghMetadata.reactions.total_count} reactions</span
+				> -->
+			</p>
+		</div>
+
+		<div class="max-w-1/2 grid justify-items-center">
+			<div
+				class=" 
+			h-1
+			w-full max-w-2xl items-center bg-gradient-to-r
+			from-artemesia via-sulphur
+			to-cameopink object-none object-center "
+			/>
+		</div>
+
+		<div>
+			<br />
+		</div>
+		<!-- <div
+		class="max-w-1/8 center -mx-3 
+my-2 flex h-1 w-1 bg-gradient-to-r
+from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
+	/> -->
+
+		<div class="max-h-160 h-160 inline-block h-full w-full overflow-hidden">
+			{@html json.content}
+		</div>
+	</article>
+{/if}
 
 <div class="mx-auto max-w-2xl">
 	{#if json?.tags?.length}
@@ -212,5 +266,4 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	article :global(.token.deleted) {
 		background: #ff000d44;
 	}
-
 </style>

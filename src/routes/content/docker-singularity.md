@@ -9,7 +9,7 @@ date: "2023-02-01"
 published: true
 tags: 
     - software
-category: Note
+category: Software
 ---
 
 <br>
