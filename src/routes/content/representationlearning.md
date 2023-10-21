@@ -4,7 +4,7 @@ title: "What is representation learning in biology for?"
 slug: "representationlearning"
 author: "alex"
 subtitle: "Unhelpful musings on ML in biology"
-description: "Discussion of what ML in biology is for"
+description: "What's the destination that computational biology is going towards?"
 date: "2023-10-18"
 published: true
 tags: 
