@@ -13,10 +13,13 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 		//const regex = /(?:(Alex Jihun Lee|Lee, Alex J.|Alex Lee|Alex J Lee|Alex J. Lee)?).*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
 		//const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.))?.*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
-		const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.).*)?\({0,1}(20\d{2})\){0,1}.*https:\/\/doi.org\/(.*\d)>{0,1}$/gm
+		//const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Lee, A\.|Lee, A\. J\.|Alex J\. Lee|Alex J\. Lee|Lee, Alex J\.).*)?\({0,1}(20\d{2})\){0,1}.*https:\/\/doi.org\/(.*\d)>{0,1}$/gm
+		//cconst regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Lee, A\.|Lee, A\. J\.|Alex J\. Lee|Alex J\. Lee|Lee, Alex J\.|Alex J\. Lee).*)?\({0,1}.*(20\d{2})\).*https:\/\/doi.org\/(.*\d)>.*$/gm
+		const regex = /(?:.*(Alex Lee|Lee, Alex J\.|Alex Jihun Lee|Alex J\. Lee))?.*(20\d{2})\)(?:.+(https:.*[^>]\d))?/gm
 		const regex_search = regex.exec(item);
 		//(Alex Lee|Alex J Lee|Alex J. Lee).*\({0,1}(20\d{2})\){0,1},.*(https:.*)>
 		if (regex_search == null) {
+			console.log('nomatch', item)
 			postPromises.push({
 				text: item,
 				myName: null,
@@ -31,7 +34,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 			let entry;
 			if (myName == null) {
-				entry = item.replace('and others', 'and others <span class="font-bold dark:text-white"> (plus me!) </span>')
+				entry = item.replace('and others', 'and others <span class="font-bold dark:text-white"> (and me!) </span>')
 
 			}
 			else {
@@ -47,8 +50,11 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				doiSymbol = 'https://www.biorxiv.org/content/' + doi + 'v1.full.pdf+html'
 				//https://www.biorxiv.org/content/10.1101/2023.03.10.531984v1.full.pdf+html
 			}			// 10.48550arXiv.2303.16725
-			else {
-				doiSymbol = doi.replace('/', '')
+			else if (doi != undefined) {
+				console.log('issue', doi)
+
+				doiSymbol = doi.replace('/', '');
+				doiSymbol = doiSymbol.replace('https://doi.org', '')
 			}
 
 			postPromises.push({
@@ -56,7 +62,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				type: typeOfItem,
 				myName: myName,
 				year: year,
-				doi: 'https://doi.org/' + doi,
+				doi: doi,
 				doiSymbol: doiSymbol,
 			})
 		}

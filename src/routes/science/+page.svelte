@@ -120,7 +120,11 @@
 	<div class="border-l-4 dark:border-artemesia">
 		<ol class="ml-6 list-decimal space-y-4 leading-relaxed">
 			{#each conferences as item}
-				<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>
+				{#if item.doi}
+					<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>
+				{:else}
+					<li>{@html item.text}</li>
+				{/if}
 			{/each}
 		</ol>
 	</div>

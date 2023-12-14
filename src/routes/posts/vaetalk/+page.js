@@ -31,7 +31,7 @@ export async function load({ params, fetch, setHeaders }) {
 
 	// const reet = await pageData.json();
 	// console.log(reet.content)
-	console.log('im done bro')
+	// console.log('im done bro')
 	return {
 		json: json,
 		//json: pageData,
