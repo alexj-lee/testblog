@@ -51,7 +51,6 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				//https://www.biorxiv.org/content/10.1101/2023.03.10.531984v1.full.pdf+html
 			}			// 10.48550arXiv.2303.16725
 			else if (doi != undefined) {
-				console.log('issue', doi)
 
 				doiSymbol = doi.replace('/', '');
 				doiSymbol = doiSymbol.replace('https://doi.org', '')
