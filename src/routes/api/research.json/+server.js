@@ -26,7 +26,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				type: typeOfItem,
 				year: null,
 				doi: null,
-				doiSymbol: null
+				doiSymbol: "",
 			})
 		} else {
 			//my_name = regex_search[1];
@@ -43,18 +43,27 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 
 			entry = entry.replace(year, '<i>' + year + '</i>');
 
-			let doiSymbol;
+			let doiSymbol = "";
 
 			// TDDO: check if v2, v3 exist etc.
 			if (match.includes('bioRxiv')) {
 				doiSymbol = 'https://www.biorxiv.org/content/' + doi + 'v1.full.pdf+html'
 				//https://www.biorxiv.org/content/10.1101/2023.03.10.531984v1.full.pdf+html
 			}			// 10.48550arXiv.2303.16725
-			else if (doi != undefined) {
 
-				doiSymbol = doi.replace('/', '');
-				doiSymbol = doiSymbol.replace('https://doi.org', '')
+			if (doi != undefined) {
+
+				//doiSymbol = doi.replace('/', ''); this if literally d oesnt work but dont know why
+				doiSymbol = doi.replace('https:/doi.org', '')
 			}
+			else {
+				doi = ""
+			}
+			//http://localhost:5173/pdfs/https:/doi.org/10.1016/j.nicl.2022.103282.pdf
+
+			// console.log(regex_search, doi != undefined, doiSymbol);
+			doiSymbol = doi.replace('https://doi.org/', '')
+			doiSymbol = doiSymbol.replace('/', '')
 
 			postPromises.push({
 				text: entry,
