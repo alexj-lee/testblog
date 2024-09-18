@@ -12,7 +12,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 		};
 
 		//const regex = /(?:.*(Alex Lee|Alex J. Lee|Lee, Alex J\.|Alex Jihun Lee|Lee AJ|Alex J\. Lee))?.*(20\d{2})\)(?:.+(https:.*[^>]\d))?.*/gm
-		const regex = /(Alex J\. Lee|Lee, Alex J.|Alex Lee).*?(20\d{2})(?!\d).*?(http.*:.*)./
+		const regex = /(Alex J\. Lee|Lee, Alex J.|Lee, Alex Jihun|Alex Lee).*?(20\d{2})(?!\d).*?(http.*:.*)./
 		const regex_search = regex.exec(item);
 		//(Alex Lee|Alex J Lee|Alex J. Lee).*\({0,1}(20\d{2})\){0,1},.*(https:.*)>
 		if (regex_search == null) {
