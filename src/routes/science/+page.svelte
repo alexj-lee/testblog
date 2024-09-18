@@ -79,7 +79,7 @@
 	</div>
 
 	<div class="border-l-4 dark:border-artemesia">
-		<ol class="ml-6 list-decimal space-y-4 leading-relaxed">
+		<ol class="ml-7 list-decimal space-y-4 leading-relaxed">
 			{#each papers as paper}
 				<li>
 					{@html paper.text} [<a href={paper.doi}>doi</a>,
@@ -100,7 +100,7 @@
 	</div>
 
 	<div class="border-l-4 dark:border-artemesia">
-		<ol class="ml-6 list-decimal space-y-4 leading-relaxed">
+		<ol class="ml-7 list-decimal space-y-4 leading-relaxed">
 			{#each preprints as item}
 				
 				<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>
@@ -119,7 +119,7 @@
 	</div>
 
 	<div class="border-l-4 dark:border-artemesia">
-		<ol class="ml-6 list-decimal space-y-4 leading-relaxed">
+		<ol class="ml-7 list-decimal space-y-4 leading-relaxed">
 			{#each conferences as item}
 				{#if item.doi}
 					<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>

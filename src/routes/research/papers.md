@@ -15,3 +15,5 @@ Mantyh, William G., Salvatore Spina, Alex Lee, Leonardo Iaccarino, David Soleima
 Pasquini, Lorenzo, Susanna L. Fryer, Stuart J. Eisendrath, Zindel V. Segal, Alex J. Lee, Jesse A. Brown, Manish Saggar, and Daniel H. Mathalon. “Dysfunctional Cortical Gradient Topography in Treatment-Resistant Major Depressive Disorder.” Biological Psychiatry: Cognitive Neuroscience and Neuroimaging 8, no. 9 (September 2023): 928–39. https://doi.org/10.1016/j.bpsc.2022.10.009.
 
 Pasquini, Lorenzo, Fatemeh Noohi, Christina R. Veziris, Eena L. Kosik, Sarah R. Holley, Alex Lee, Jesse A. Brown, et al. “Dynamic Autonomic Nervous System States Arise during Emotions and Manifest in Basal Physiology.” Psychophysiology 60, no. 4 (April 2023): e14218. https://doi.org/10.1111/psyp.14218.
+
+Pasquini, Lorenzo, Gianina Toller, Adam Staffaroni, Jesse A. Brown, Jersey Deng, Alex Lee, Katarzyna Kurcyus, et al. “State and Trait Characteristics of Anterior Insula Time-Varying Functional Connectivity.” NeuroImage 208, no. 116425 (March 2020): 116425. https://doi.org/10.1016/j.neuroimage.2019.116425.
