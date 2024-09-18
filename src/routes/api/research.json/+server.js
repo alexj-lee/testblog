@@ -11,11 +11,8 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 			continue
 		};
 
-		//const regex = /(?:(Alex Jihun Lee|Lee, Alex J.|Alex Lee|Alex J Lee|Alex J. Lee)?).*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
-		//const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Alex J\. Lee|Lee, Alex J\.))?.*\({0,1}(20\d{2})\){0,1}.*(https.*\d)>{0,1}$/gm
-		//const regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Lee, A\.|Lee, A\. J\.|Alex J\. Lee|Alex J\. Lee|Lee, Alex J\.).*)?\({0,1}(20\d{2})\){0,1}.*https:\/\/doi.org\/(.*\d)>{0,1}$/gm
-		//cconst regex = /.*?(?:(Alex Lee|Alex Jihun Lee|Alex J Lee|Lee, A\.|Lee, A\. J\.|Alex J\. Lee|Alex J\. Lee|Lee, Alex J\.|Alex J\. Lee).*)?\({0,1}.*(20\d{2})\).*https:\/\/doi.org\/(.*\d)>.*$/gm
-		const regex = /(?:.*(Alex Lee|Lee, Alex J\.|Alex Jihun Lee|Alex J\. Lee))?.*(20\d{2})\)(?:.+(https:.*[^>]\d))?/gm
+		//const regex = /(?:.*(Alex Lee|Alex J. Lee|Lee, Alex J\.|Alex Jihun Lee|Lee AJ|Alex J\. Lee))?.*(20\d{2})\)(?:.+(https:.*[^>]\d))?.*/gm
+		const regex = /(Alex J\. Lee|Lee, Alex J.|Alex Lee).*?(20\d{2})(?!\d).*?(http.*:.*)./
 		const regex_search = regex.exec(item);
 		//(Alex Lee|Alex J Lee|Alex J. Lee).*\({0,1}(20\d{2})\){0,1},.*(https:.*)>
 		if (regex_search == null) {
