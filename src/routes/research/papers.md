@@ -2,6 +2,8 @@ Brown, Jesse A., Alex J. Lee, Lorenzo Pasquini, and William W. Seeley. “A Dyna
 
 Cahill, Robert, Yu Wang, R. Patrick Xian, Alex J. Lee, Hongkui Zeng, Bin Yu, Bosiljka Tasic, and Reza Abbasi-Asl. “Unsupervised Pattern Identification in Spatial Gene Expression Atlas Reveals Mouse Brain Regions beyond Established Ontology.” Proceedings of the National Academy of Sciences of the United States of America 121, no. 37 (September 10, 2024): e2319804121. https://doi.org/10.1073/pnas.2319804121.
 
+Pasquini, Lorenzo, Felipe L. Pereira, Sahba Seddighi, Yi Zeng, Yongbin Wei, Ignacio Illán-Gala, Sarat C. Vatsavayai, et al. “Frontotemporal Lobar Degeneration Targets Brain Regions Linked to Expression of Recently Evolved Genes.” Brain: A Journal of Neurology 147, no. 9 (September 3, 2024): 3032–47. https://doi.org/10.1093/brain/awae205.
+
 Zhang, Liwen, Taru M. Flagan, Suvi Häkkinen, Stephanie A. Chu, Jesse A. Brown, Alex J. Lee, Lorenzo Pasquini, et al. “Network Connectivity Alterations across the MAPT Mutation Clinical Spectrum.” Annals of Neurology 94, no. 4 (October 2023): 632–46. https://doi.org/10.1002/ana.26738.
 
 Chow, Tiffany E., Christina R. Veziris, Renaud La Joie, Alex J. Lee, Jesse A. Brown, Jennifer S. Yokoyama, Katherine P. Rankin, et al. “Increasing Empathic Concern Relates to Salience Network Hyperconnectivity in Cognitively Healthy Older Adults with Elevated Amyloid-β Burden.” NeuroImage. Clinical 37, no. 103282 (2023): 103282. https://doi.org/10.1016/j.nicl.2022.103282.

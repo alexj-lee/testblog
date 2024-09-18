@@ -12,7 +12,14 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 		};
 
 		//const regex = /(?:.*(Alex Lee|Alex J. Lee|Lee, Alex J\.|Alex Jihun Lee|Lee AJ|Alex J\. Lee))?.*(20\d{2})\)(?:.+(https:.*[^>]\d))?.*/gm
-		const regex = /(Alex J\. Lee|Lee, Alex J.|Lee, Alex Jihun|Alex Lee).*?(20\d{2})(?!\d).*?(http.*:.*)./
+
+		//const regex = /(Alex J\. Lee|Lee, Alex J.|Lee, Alex Jihun|Alex Lee).*?(20\d{2})(?!\d).*?(http.*:.*)./
+		//const regex = /(Alex J\. Lee|Lee, Alex J\.|Lee, Alex Jihun|Alex Lee).*?(20\d{2})(?!\d)(?:.*?(https?:\/\/\S+))?/;
+		
+		//const regex = /(Alex J\. Lee|Lee, Alex J\.|Lee, Alex Jihun|Alex Jihun Lee|Alex Lee).*?(20\d{2})(?!\d)(?:.*?(https?:\/\/\S+))?/gm
+
+		//const regex = /(Alex J\. Lee|Lee, Alex J\.|Lee, Alex Jihun|Alex Jihun Lee|Alex Lee).*?(20\d{2})(?!\d)(?:.*?(https?:\/\/\S+))?./;
+		const regex = /(?:.*?(Alex J\. Lee|Lee, Alex J\.|Lee, Alex Jihun|Alex Jihun Lee|Alex Lee))?.*?(20\d{2})(?!\d)(?:.*?(https?:\/\/\S+))?./;
 		const regex_search = regex.exec(item);
 		//(Alex Lee|Alex J Lee|Alex J. Lee).*\({0,1}(20\d{2})\){0,1},.*(https:.*)>
 		if (regex_search == null) {
@@ -28,6 +35,8 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 		} else {
 			//my_name = regex_search[1];
 			let [match, myName, year, doi] = regex_search
+			// convert year to int
+
 
 			let entry;
 			if (myName == null) {
@@ -66,7 +75,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				text: entry,
 				type: typeOfItem,
 				myName: myName,
-				year: year,
+				year: parseInt(year, 10),
 				doi: doi,
 				doiSymbol: doiSymbol,
 			})

@@ -102,6 +102,7 @@
 	<div class="border-l-4 dark:border-artemesia">
 		<ol class="ml-6 list-decimal space-y-4 leading-relaxed">
 			{#each preprints as item}
+				
 				<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>
 			{/each}
 		</ol>
