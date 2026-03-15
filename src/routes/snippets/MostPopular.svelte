@@ -9,12 +9,12 @@
 				href="/welcome"
 				><div class="w-full">
 					<div class="flex flex-col justify-between md:flex-row">
-						<h4 class="mb-2 w-full flex-auto text-lg font-bold md:text-xl">Welcome to swyxkit!</h4>
+						<h4 class="mb-2 w-full flex-auto text-lg font-bold md:text-xl">Welcome!</h4>
 					</div>
 					<p
 						class="ml-8 text-gray-600  hover:text-yellow-600 dark:text-gray-400 dark:hover:text-yellow-100"
 					>
-						This is swyx's preferred starter for Svelte projects!
+						Alex J. Lee's personal blog and research site.
 					</p>
 				</div></a
 			>
@@ -24,13 +24,13 @@
 				><div class="w-full">
 					<div class="flex flex-col justify-between md:flex-row">
 						<h4 class="mb-2 w-full flex-auto text-lg font-bold md:text-xl">
-							Moving to a GitHub CMS
+							Research
 						</h4>
 					</div>
 					<p
 						class="ml-8 text-gray-600  hover:text-yellow-600 dark:text-gray-400 dark:hover:text-yellow-100"
 					>
-						The most popular (optional!) decision of SwyxKit!
+						Publications and research projects.
 					</p>
 				</div></a
 			>

@@ -71,10 +71,10 @@
 
 			<form
 				class="relative my-4"
-				action="https://buttondown.email/api/emails/embed-subscribe/swyx"
+				action="https://buttondown.email/api/emails/embed-subscribe/alexjlee"
 				method="post"
 				target="popupwindow"
-				on:submit={() => toggleNewsletter() && window.open('https://buttondown.email/swyx', 'popupwindow')}
+				on:submit={() => toggleNewsletter() && window.open('https://buttondown.email/alexjlee', 'popupwindow')}
 			>
 				<input
 					type="email"

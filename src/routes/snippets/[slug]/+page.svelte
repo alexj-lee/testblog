@@ -33,8 +33,8 @@
 	{#if json.subtitle}
 		<meta property="subtitle" content={json.subtitle} />
 	{/if}
-	<meta name="Description" content={json.description || 'swyxkit blog'} />
-	<meta property="og:description" content={json.description || 'swyxkit blog'} />
+	<meta name="Description" content={json.description || 'Alex J. Lee'} />
+	<meta property="og:description" content={json.description || 'Alex J. Lee'} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
@@ -44,7 +44,7 @@
 </svelte:head>
 
 <article
-	class="swyxcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justify-center dark:prose-invert"
+	class="blogcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justify-center dark:prose-invert"
 >
 	<h1
 		class="mb-8 text-center text-3xl font-bold tracking-tight text-black dark:text-white sm:text-center md:text-5xl"
@@ -85,7 +85,7 @@
 			w-full max-w-2xl items-center bg-gradient-to-r
 			from-artemesia via-sulphur
 			to-cameopink object-none object-center "
-		/>
+		></div>
 	</div>
 
 	<br />
@@ -95,7 +95,7 @@
 
 <style>
 	/* https://ryanmulligan.dev/blog/layout-breakouts/ */
-	.swyxcontent {
+	.blogcontent {
 		--gap: clamp(1rem, 6vw, 3rem);
 		--full: minmax(var(--gap), 1fr);
 		/* --content: min(65ch, 100% - var(--gap) * 2); */
@@ -115,7 +115,7 @@
 	}
 
 	@media (min-width: 768px) {
-		.swyxcontent {
+		.blogcontent {
 			grid-template-columns:
 				[full-start] var(--full)
 				[feature-start] var(--feature)
@@ -127,7 +127,7 @@
 		}
 	}
 
-	:global(.swyxcontent > *) {
+	:global(.blogcontent > *) {
 		grid-column: content;
 	}
 

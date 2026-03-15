@@ -4,12 +4,8 @@
 
 	import { page } from '$app/stores';
 	import 'prism-themes/themes/prism-nord.min.css';
-	// https://svelte-put.vnphanquang.com/docs/toc
-	import { createTocStore, toc } from '@svelte-put/toc';
 	import BlogLinks from '../../../components/BlogLinks.svelte';
 	import Toc from '../../../components/Toc.svelte';
-	// table of contennts
-	const tocStore = createTocStore();
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -51,8 +47,8 @@
 	{#if json.subtitle}
 		<meta property="subtitle" content={json.subtitle} />
 	{/if}
-	<meta name="Description" content={json.description || 'swyxkit blog'} />
-	<meta property="og:description" content={json.description || 'swyxkit blog'} />
+	<meta name="Description" content={json.description || 'Alex J. Lee'} />
+	<meta property="og:description" content={json.description || 'Alex J. Lee'} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
@@ -71,8 +67,7 @@
 
 {#if json.layout == 'blog'}
 	<article
-		use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-		class="swyxcontent prose mx-auto mt-16 mb-32 
+		class="blogcontent prose mx-auto mt-16 mb-32 
 	w-full max-w-2xl items-start justify-center 
 	dark:prose-invert "
 	>
@@ -106,7 +101,7 @@
 			w-full max-w-2xl items-center bg-gradient-to-r
 			from-artemesia via-sulphur
 			to-cameopink object-none object-center "
-			/>
+			></div>
 		</div>
 
 		<div>
@@ -125,8 +120,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	<Toc />
 {:else}
 	<article
-		use:toc={{ store: tocStore, anchor: false, observe: true, selector: ':where(h1, h2, h3)' }}
-		class="swyxcontent prose mx-auto mt-16 mb-32 
+		class="blogcontent prose mx-auto mt-16 mb-32 
 	w-full max-w-2xl items-start justify-center 
 	dark:prose-invert "
 	>
@@ -160,7 +154,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 			w-full max-w-2xl items-center bg-gradient-to-r
 			from-artemesia via-sulphur
 			to-cameopink object-none object-center "
-			/>
+			></div>
 		</div>
 
 		<div>
@@ -196,7 +190,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 
 <style>
 	/* https://ryanmulligan.dev/blog/layout-breakouts/ */
-	.swyxcontent {
+	.blogcontent {
 		--gap: clamp(1rem, 6vw, 3rem);
 		--full: minmax(var(--gap), 1fr);
 		/* --content: min(65ch, 100% - var(--gap) * 2); */
@@ -216,7 +210,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 	}
 
 	@media (min-width: 768px) {
-		.swyxcontent {
+		.blogcontent {
 			grid-template-columns:
 				[full-start] var(--full)
 				[feature-start] var(--feature)
@@ -228,7 +222,7 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 		}
 	}
 
-	:global(.swyxcontent > *) {
+	:global(.blogcontent > *) {
 		grid-column: content;
 	}
 

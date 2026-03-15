@@ -4,10 +4,6 @@
 
 	import { page } from '$app/stores';
 	import 'prism-themes/themes/prism-nord.min.css';
-	// https://svelte-put.vnphanquang.com/docs/toc
-	import { createTocStore } from '@svelte-put/toc';
-	// table of contennts
-	const tocStore = createTocStore();
 
 	/** @type {import('./$types').PageData} */
 	export let data;
@@ -49,8 +45,8 @@
 	{#if json.subtitle}
 		<meta property="subtitle" content={json.subtitle} />
 	{/if}
-	<meta name="Description" content={json.description || 'swyxkit blog'} />
-	<meta property="og:description" content={json.description || 'swyxkit blog'} />
+	<meta name="Description" content={json.description || 'Alex J. Lee'} />
+	<meta property="og:description" content={json.description || 'Alex J. Lee'} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
 	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
@@ -66,7 +62,7 @@
 </svelte:head>
 
 <article
-	class="swyxcontent prose mx-auto mt-16 mb-32 
+	class="blogcontent prose mx-auto mt-16 mb-32 
 	w-full max-w-2xl items-start justify-center 
 	dark:prose-invert"
 >
@@ -93,12 +89,12 @@
 
 	<div class="max-w-1/2 grid justify-items-center">
 		<div
-			class=" 
+			class="
 			h-1
 			w-full max-w-2xl items-center bg-gradient-to-r
 			from-artemesia via-sulphur
 			to-cameopink object-none object-center "
-		/>
+		></div>
 	</div>
 	<!-- <div
 		class="max-w-1/8 center -mx-3 
@@ -114,13 +110,13 @@ from-artemesia via-sulphur to-cameopink sm:mx-0 sm:w-1/2"
 			scrolling="no"
 			title="A survey of sequence models for proteins"
 			src="https://alexj-lee.github.io/plmpresentation/#/title-slide"
-		/>
+		></iframe>
 	</div>
 
 	<br />
 
 	<div
-		class="swyxcontent prose inline-block 
+		class="blogcontent prose inline-block 
 	 max-w-2xl overflow-auto dark:prose-invert"
 	>
 		{@html json.content}

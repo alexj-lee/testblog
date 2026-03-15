@@ -19,7 +19,7 @@
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
 			Online Profiles and CV
-			<span class="inline-block pt-2 text-sm" />
+			<span class="inline-block pt-2 text-sm"></span>
 		</h1>
 
 		<span>
@@ -73,7 +73,7 @@
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
 			Papers
-			<span class="inline-block pt-2 text-sm" />
+			<span class="inline-block pt-2 text-sm"></span>
 		</h1>
 		<br />
 	</div>
@@ -82,8 +82,7 @@
 		<ol class="ml-7 list-decimal space-y-4 leading-relaxed">
 			{#each papers as paper}
 				<li>
-					{@html paper.text} [<a href={paper.doi}>doi</a>,
-					<a href="pdfs/{paper.doiSymbol}.pdf">pdf</a>]
+					{@html paper.text} [<a href={paper.doi}>doi</a>{#if paper.hasPdf}, <a href="pdfs/{paper.doiSymbol}.pdf">pdf</a>{/if}]
 				</li>
 			{/each}
 		</ol>
@@ -122,7 +121,7 @@
 		<ol class="ml-7 list-decimal space-y-4 leading-relaxed">
 			{#each conferences as item}
 				{#if item.doi}
-					<li>{@html item.text} [<a href={item.doi}>doi</a>]</li>
+					<li>{@html item.text} [<a href={item.doi}>doi</a>{#if item.hasPdf}, <a href="pdfs/{item.doiSymbol}.pdf">pdf</a>{/if}]</li>
 				{:else}
 					<li>{@html item.text}</li>
 				{/if}

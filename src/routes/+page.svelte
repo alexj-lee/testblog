@@ -38,7 +38,7 @@
 </svelte:head>
 
 <div
-	class="whitespace-break-spaces mx-auto flex max-w-2xl flex-col items-start
+	class="mx-auto flex max-w-2xl flex-col items-start
 	 justify-center border-gray-200 pb-16 dark:border-gray-700 sm:px-4"
 >
 	{#if mounted}
@@ -64,21 +64,20 @@
 				<h2 in:fade={{ delay: 1400, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
 					Please enjoy this image of a protein wiggling around, PDB ID
 					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
-
-					<div>
-						<img
-							in:fade={{ delay: 2200, duration: 2500 }}
-							src="/1jrj-d80_minsize.webp"
-							alt="A video of a protein wiggling around."
-							class="block
-						max-w-sm scale-100
-						bg-transparent opacity-90 brightness-125 dark:bg-transparent
-						dark:opacity-100
-						dark:brightness-110
-						"
-						/>
-					</div>
 				</h2>
+
+				<div in:fade={{ delay: 2200, duration: 2500 }}>
+					<img
+						src="/1jrj-d80_minsize.webp"
+						alt="A video of a protein wiggling around."
+						class="block
+					max-w-sm scale-100
+					bg-transparent opacity-90 brightness-125 dark:bg-transparent
+					dark:opacity-100
+					dark:brightness-110
+					"
+					/>
+				</div>
 			</div>
 
 		</div>
@@ -89,7 +88,7 @@
 			Featured Posts
 		</h3>
 		<div class="flex flex-col gap-6 md:flex-row">
-			<FeatureCard title="Welcome to swyxkit 2022!" href="/welcome" stringData="Jan 2022" />
+			<FeatureCard title="Welcome!" href="/welcome" stringData="Jan 2022" />
 			<FeatureCard
 				title="Moving to a GitHub CMS"
 				href="/moving-to-a-github-cms"

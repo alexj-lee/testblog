@@ -1,5 +1,6 @@
 import { json } from '@sveltejs/kit';
 import { promises as fs } from 'fs';
+import { existsSync } from 'fs';
 export const prerender = true;
 
 async function readPaperFile(fileName, postPromises, typeOfItem) {
@@ -68,8 +69,16 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 			//http://localhost:5173/pdfs/https:/doi.org/10.1016/j.nicl.2022.103282.pdf
 
 			// console.log(regex_search, doi != undefined, doiSymbol);
-			doiSymbol = doi.replace('https://doi.org/', '')
-			doiSymbol = doiSymbol.replace('/', '')
+			if (doi.includes('arxiv.org/abs/')) {
+				doiSymbol = doi.match(/(\d{4}\.\d{4,5})/)?.[1] || doi
+			} else if (doi.includes('openreview.net/forum?id=')) {
+				doiSymbol = doi.match(/id=([A-Za-z0-9]+)/)?.[1] || doi
+			} else {
+				doiSymbol = doi.replace('https://doi.org/', '')
+				doiSymbol = doiSymbol.replace('/', '')
+			}
+
+			const hasPdf = doiSymbol && existsSync(`static/pdfs/${doiSymbol}.pdf`);
 
 			postPromises.push({
 				text: entry,
@@ -78,6 +87,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				year: parseInt(year, 10),
 				doi: doi,
 				doiSymbol: doiSymbol,
+				hasPdf: hasPdf,
 			})
 		}
 	}
