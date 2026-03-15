@@ -3,20 +3,17 @@
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
 	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
-	import { onMount } from 'svelte';
+	import { fuzzySearch } from '$lib/fuzzySearch';
 	import { fly } from 'svelte/transition';
 	import { queryParam, ssp } from 'sveltekit-search-params';
 
 	import IndexCard from '../../components/IndexCard.svelte';
-	// import MostPopular from './MostPopular.svelte';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 
-	// technically this is a slighlty different type because doesnt have 'content' but we'll let it slide
 	$: items = data.items;
 
-	// // https://github.com/paoloricciuti/sveltekit-search-params#how-to-use-it
 	/** @type import('svelte/store').Writable<String[] | null> */
 	let selectedCategories = queryParam(
 		'show',
@@ -26,8 +23,6 @@
 		},
 		{ debounceHistory: 500 }
 	);
-
-	// selectedCategories += POST_CATEGORIES[0];
 
 	let search = queryParam('filter', ssp.string(), {
 		debounceHistory: 500
@@ -39,50 +34,9 @@
 		if (e.key === '/' && inputEl) inputEl.select();
 	}
 
-	// https://github.com/leeoniya/uFuzzy#options
-	// we know this has js weight, but we tried lazyloading and it wasnt significant enough for the added complexity
-	// https://github.com/sw-yx/swyxkit/pull/171
-	// this will be slow if you have thousands of items, but most people don't
-	let isTruncated = items?.length > 20;
-
-	// we are lazy loading a fuzzy search function
-	// with a fallback to a simple filter function
-	let loaded = false;
-	const filterCategories = async (_items, _, s) => {
-		if (!$selectedCategories?.length) return _items;
-		return _items
-			.filter((item) => {
-				return $selectedCategories
-					.map((element) => {
-						return element.toLowerCase();
-					})
-					.includes(item.category.toLowerCase());
-			})
-			.filter((item) => item.toString().toLowerCase().includes(s));
-	};
-
-	$: searchFn = filterCategories;
-	function loadsearchFn() {
-		if (loaded) return;
-		import('./fuzzySearch').then((fuzzy) => {
-			searchFn = fuzzy.fuzzySearch;
-			loaded = true;
-		});
-	}
-
-	//if ($search) loadsearchFn();
-	loadsearchFn();
-
 	/** @type import('$lib/types').ContentItem[]  */
 	let list;
-	$: searchFn(items, $selectedCategories, $search).then((_items) => (list = _items));
-
-	// let POST_CATEGORIES = [];
-	// .slice(0, isTruncated ? 2 : items.length);
-	// console.log('loaded is', loaded);
-	let mounted = false;
-	let postCount;
-	onMount(() => (postCount = items.length));
+	$: list = fuzzySearch(items, $selectedCategories, $search);
 
 	//let postCount = items?.length;
 </script>
@@ -112,7 +66,7 @@
 			type="text"
 			bind:value={$search}
 			bind:this={inputEl}
-			on:focus={loadsearchFn}
+			on:focus
 			placeholder="Hit / to search"
 			class="block w-full rounded-md border border-gray-200 bg-white px-4 py-2 text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
 		/><svg
