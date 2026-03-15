@@ -1,4 +1,4 @@
-import { getBlogpost, getPost } from '$lib/content';
+import { getPost } from '$lib/content';
 import { error } from '@sveltejs/kit';
 /**
  * @type {import('@sveltejs/kit').RequestHandler}

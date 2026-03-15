@@ -1,5 +1,5 @@
 <script>
-	import formatDistance from 'date-fns/formatDistance/index.js';
+	import { formatDistance } from 'date-fns';
 	import snarkdown from 'snarkdown';
 	import Reactions from './Reactions.svelte';
 	/** @type {import('$lib/types').GHComment} */

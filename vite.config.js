@@ -1,22 +1,14 @@
-// vite.config.js
 import { sveltekit } from '@sveltejs/kit/vite';
-import { mdsvex } from 'mdsvex';
-import { ssp } from "sveltekit-search-params/plugin";
+import { defineConfig } from 'vite';
 
-
-/** @type {import('vite').UserConfig} */
-const config = {
-	plugins: [ssp(), sveltekit(), mdsvex()],
+export default defineConfig({
+	plugins: [sveltekit()],
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	},
 	server: {
 		fs: {
-			// https://vitejs.dev/config/server-options.html#server-fs-allow
-			// allows importing readme for About page
 			allow: ['..']
 		}
 	}
-};
-
-export default config;
+});

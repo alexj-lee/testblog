@@ -112,7 +112,7 @@
 			<div class="flex pl-5 pb-3">
 				<span> Contents: <br /> </span>
 			</div>
-			<nav transition:blur|local>
+			<nav transition:blur>
 				<ul class="inline-block flex-col space-y-0">
 					{#each headings as heading, idx}
 						<li

@@ -54,5 +54,6 @@ something
 <!-- <iframe srcdoc="{document}"></iframe> -->
 <iframe
 	class="h-96 max-h-96"
+	title="VAE presentation"
 	src="https://alexj-lee.github.io/identifiability-vae-presentation/idvae#/title-slide"
-/>
+></iframe>

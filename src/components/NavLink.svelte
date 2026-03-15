@@ -1,7 +1,7 @@
 <script>
 	import { page } from '$app/stores';
-	$: isActive = $page.url.pathname === $$props.href;
 	export let href;
+	$: isActive = $page.url.pathname === href;
 </script>
 
 <a
