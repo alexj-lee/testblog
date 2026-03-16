@@ -145,10 +145,11 @@ article.prose h4::before {
 
 @keyframes protein-fade {
 	from { opacity: 0; }
-	to { opacity: 0.9; }
+	to { opacity: var(--protein-opacity, 0.9); }
 }
 
 .protein-img {
+	--protein-opacity: 0.9;
 	display: block;
 	max-width: 24rem;
 	background-color: transparent;
@@ -156,8 +157,8 @@ article.prose h4::before {
 }
 
 .dark .protein-img {
+	--protein-opacity: 1;
 	filter: brightness(1.1);
-	opacity: 1;
 }
 
 .protein-fade-in {
