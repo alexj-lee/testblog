@@ -38,10 +38,35 @@ export async function load({ params, fetch, setHeaders }) {
 	// const x = await loadSorted('paper', entries);
 	// console.log(x);
 
+	const press = [
+		{
+			title: 'Fed on Reams of Cell Data, AI Maps New Neighborhoods in the Brain',
+			publication: 'Quanta Magazine',
+			date: '2026-02-09',
+			url: 'https://www.quantamagazine.org/fed-on-reams-of-cell-data-ai-maps-new-neighborhoods-in-the-brain-20260209/',
+			image: '/press/quanta-brain-cartography.webp'
+		},
+		{
+			title: 'How neuroscientists are using AI',
+			publication: 'The Transmitter',
+			date: '2025-11-04',
+			url: 'https://www.thetransmitter.org/neuroscientists-using-ai/how-neuroscientists-are-using-ai/',
+			image: '/press/transmitter-ai-neuroscience.png'
+		},
+		{
+			title: 'The Dayhoff Atlas: scaling sequence diversity improves protein design',
+			publication: 'Microsoft Research',
+			date: '2025-07-25',
+			url: 'https://www.microsoft.com/en-us/research/articles/the-dayhoff-atlas/',
+			image: '/press/microsoft-dayhoff-atlas.png'
+		}
+	];
+
 	return {
 		papers,
 		preprints,
 		conferences,
+		press,
 		//json: json,
 		//json: pageData,
 		//list: (await listData.json()).slice(0, 10),

@@ -64,17 +64,33 @@
 				class="text-gray-500 transition hover:text-gray-300"
 				target="_blank"
 				rel="noopener noreferrer"
-				href={'https://twitter.com/' + MY_TWITTER_HANDLE}
+				href="https://github.com/alexj-lee"
 			>
-				Twitter
+				GitHub
 			</a>
 			<a
 				class="text-gray-500 transition hover:text-gray-300"
 				target="_blank"
 				rel="noopener noreferrer"
-				href="https://github.com/alexj-lee"
+				href="https://scholar.google.com/citations?user=fMdvjhkAAAAJ&hl=en"
 			>
-				GitHub
+				Google Scholar
+			</a>
+			<a
+				class="text-gray-500 transition hover:text-gray-300"
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://orcid.org/0000-0003-0001-2848"
+			>
+				ORCID
+			</a>
+			<a
+				class="text-gray-500 transition hover:text-gray-300"
+				target="_blank"
+				rel="noopener noreferrer"
+				href={'https://twitter.com/' + MY_TWITTER_HANDLE}
+			>
+				Twitter
 			</a>
 		</div>
 	</div>

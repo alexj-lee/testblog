@@ -5,6 +5,7 @@
 	$: papers = data.papers;
 	$: preprints = data.preprints;
 	$: conferences = data.conferences;
+	$: press = data.press;
 </script>
 
 <svelte:head>
@@ -28,7 +29,7 @@
 		<h1
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
-			Online Profiles and CV
+			Research
 			<span class="inline-block pt-2 text-sm"></span>
 		</h1>
 
@@ -79,12 +80,12 @@
 	</div>
 
 	<div class="">
-		<h1
+		<h2
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
 			Papers
 			<span class="inline-block pt-2 text-sm"></span>
-		</h1>
+		</h2>
 		<br />
 	</div>
 
@@ -100,11 +101,11 @@
 
 	<div class="">
 		<br />
-		<h1
+		<h2
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
 			Preprints
-		</h1>
+		</h2>
 		<br />
 	</div>
 
@@ -119,11 +120,11 @@
 
 	<div class="">
 		<br />
-		<h1
+		<h2
 			class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
 		>
 			Conference abstracts
-		</h1>
+		</h2>
 		<br />
 	</div>
 
@@ -138,4 +139,43 @@
 			{/each}
 		</ol>
 	</div>
+
+	{#if press.length > 0}
+		<div class="">
+			<br />
+			<h2
+				class="relative mb-3 text-3xl font-bold tracking-tight text-black dark:text-white md:text-4xl"
+			>
+				News coverage
+			</h2>
+			<br />
+		</div>
+
+		<div class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
+			{#each press as item}
+				<a
+					href={item.url}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group overflow-hidden rounded-lg border border-gray-200 transition-shadow hover:shadow-lg dark:border-gray-700"
+				>
+					<img
+						src={item.image}
+						alt="{item.publication} — {item.title}"
+						width="300"
+						height="160"
+						class="h-40 w-full object-cover transition-transform group-hover:scale-105"
+					/>
+					<div class="p-3">
+						<p class="text-sm font-semibold text-gray-900 dark:text-gray-100">
+							{item.title}
+						</p>
+						<p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
+							{item.publication} · {new Date(item.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+						</p>
+					</div>
+				</a>
+			{/each}
+		</div>
+	{/if}
 </div>

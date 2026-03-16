@@ -62,7 +62,7 @@
 			 px-4 sm:px-8"
 >
 	<h1 class="mb-4 text-3xl font-bold tracking-tight text-black dark:text-white md:text-5xl">
-		{SITE_TITLE} posts
+		Blog
 	</h1>
 	<p class="mb-4 text-gray-600 dark:text-gray-400">
 		In total, I've written <span in:fly={{ y: -20, delay: 500 }}>{items.length}</span> articles on my

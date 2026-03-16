@@ -6,7 +6,7 @@ author: "alex"
 subtitle: "Invited talk at ML for Protein Engineering (ML4PE)"
 description: "My invited talk at the ML4PE seminar series on the Dayhoff Atlas and synthetic data augmentation for protein language models"
 date: "2025-10-07"
-published: true
+published: false
 tags:
     - ml
     - protein
