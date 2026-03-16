@@ -69,7 +69,7 @@
 				<div>
 					<img
 						src="/1jrj-d80_minsize_1mb_backup.webp"
-						alt="A video of a protein wiggling around."
+						alt="Animated visualization of a protein wiggling around, PDB ID 1jrj."
 						width="380"
 						height="586"
 						class="protein-img protein-fade-in"
