@@ -1,10 +1,37 @@
 <script>
-	import { MY_TWITTER_HANDLE } from '$lib/siteConfig';
+	import { MY_TWITTER_HANDLE, SITE_URL, SITE_TITLE } from '$lib/siteConfig';
 	import Nav from '../components/Nav.svelte';
 	import '../tailwind.css';
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@graph': [
+			{
+				'@type': 'WebSite',
+				name: SITE_TITLE,
+				url: SITE_URL
+			},
+			{
+				'@type': 'Person',
+				name: 'Alex J. Lee',
+				url: SITE_URL,
+				sameAs: [
+					'https://github.com/alexj-lee',
+					'https://orcid.org/0000-0003-0001-2848',
+					'https://scholar.google.com/citations?user=fMdvjhkAAAAJ'
+				],
+				jobTitle: 'PhD Student',
+				affiliation: [
+					{ '@type': 'Organization', name: 'UCSF' },
+					{ '@type': 'Organization', name: 'Calico Life Sciences' }
+				]
+			}
+		]
+	};
 </script>
 
 <svelte:head>
+	{@html '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '</script>'}
 	<!-- <link
 		rel="alternate"
 		type="application/rss+xml"

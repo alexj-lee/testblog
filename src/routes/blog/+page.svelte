@@ -2,7 +2,7 @@
 	// import { browser } from '$app/environment';
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
-	import { POST_CATEGORIES, SITE_TITLE } from '$lib/siteConfig';
+	import { POST_CATEGORIES, SITE_TITLE, SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
 	import { fuzzySearch } from '$lib/fuzzySearch';
 	import { fly } from 'svelte/transition';
 	import { queryParam, ssp } from 'sveltekit-search-params';
@@ -44,6 +44,15 @@
 <svelte:head>
 	<title>{SITE_TITLE} blog posts</title>
 	<meta name="description" content={`Latest ${SITE_TITLE} posts`} />
+	<link rel="canonical" href={SITE_URL + '/blog'} />
+	<meta property="og:title" content={`${SITE_TITLE} blog posts`} />
+	<meta property="og:description" content={`Latest ${SITE_TITLE} posts`} />
+	<meta property="og:url" content={SITE_URL + '/blog'} />
+	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={`${SITE_TITLE} blog posts`} />
+	<meta name="twitter:description" content={`Latest ${SITE_TITLE} posts`} />
+	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 </svelte:head>
 
 <svelte:window on:keyup={focusSearch} />

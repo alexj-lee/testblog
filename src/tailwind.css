@@ -148,11 +148,18 @@ article.prose h4::before {
 	to { opacity: 0.9; }
 }
 
-.protein-fade-in {
-	animation: protein-fade 4s ease-in forwards;
+.protein-img {
+	display: block;
+	max-width: 24rem;
+	background-color: transparent;
+	filter: brightness(1.25);
 }
 
-.dark .protein-fade-in {
+.dark .protein-img {
+	filter: brightness(1.1);
+	opacity: 1;
+}
+
+.protein-fade-in {
 	animation: protein-fade 4s ease-in forwards;
-	--tw-opacity: 1;
 }

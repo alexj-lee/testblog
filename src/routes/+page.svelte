@@ -70,12 +70,7 @@
 					<img
 						src="/1jrj-d80_minsize_1mb_backup.webp"
 						alt="A video of a protein wiggling around."
-						class="block
-					max-w-sm scale-100
-					bg-transparent brightness-125 dark:bg-transparent
-					dark:brightness-110
-					protein-fade-in
-					"
+						class="protein-img protein-fade-in"
 					/>
 				</div>
 			</div>

@@ -1,4 +1,5 @@
 <script>
+	import { SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
 	export let data;
 
 	$: papers = data.papers;
@@ -9,6 +10,15 @@
 <svelte:head>
 	<title>papers</title>
 	<meta name="description" content="Projects and papers I've worked on" />
+	<link rel="canonical" href={SITE_URL + '/science'} />
+	<meta property="og:title" content="Papers" />
+	<meta property="og:description" content="Projects and papers I've worked on" />
+	<meta property="og:url" content={SITE_URL + '/science'} />
+	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Papers" />
+	<meta name="twitter:description" content="Projects and papers I've worked on" />
+	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 </svelte:head>
 
 <div

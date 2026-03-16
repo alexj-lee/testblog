@@ -2,7 +2,7 @@
 	// import { browser } from '$app/environment';
 	// import { goto } from '$app/navigation';
 	// import { page } from '$app/stores';
-	import { SITE_TITLE } from '$lib/siteConfig';
+	import { SITE_TITLE, SITE_URL, DEFAULT_OG_IMAGE } from '$lib/siteConfig';
 	import { fuzzySearch } from '$lib/fuzzySearch';
 	import 'prism-themes/themes/prism-nord.min.css';
 	import { queryParam, ssp } from 'sveltekit-search-params';
@@ -43,6 +43,15 @@
 <svelte:head>
 	<title>{SITE_TITLE} code snippets</title>
 	<meta name="description" content="Possibly useful code" />
+	<link rel="canonical" href={SITE_URL + '/snippets'} />
+	<meta property="og:title" content={`${SITE_TITLE} code snippets`} />
+	<meta property="og:description" content="Possibly useful code" />
+	<meta property="og:url" content={SITE_URL + '/snippets'} />
+	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={`${SITE_TITLE} code snippets`} />
+	<meta name="twitter:description" content="Possibly useful code" />
+	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
 </svelte:head>
 
 <svelte:window on:keyup={focusSearch} />

@@ -7,11 +7,12 @@ export async function GET() {
 	const posts = await Promise.all(
 		Object.entries(modules).map(async ([path, resolver]) => {
 			const post = await resolver();
+			const meta = post.metadata ?? {};
 			const slug = path.split('/').pop().replace(/\.(md|svx|svelte\.md)$/, '');
 			return {
 				slug,
-				date: post.metadata?.date,
-				published: post.metadata?.published
+				date: meta.date,
+				published: meta.published
 			};
 		})
 	);

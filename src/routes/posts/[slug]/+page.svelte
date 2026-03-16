@@ -61,6 +61,22 @@
 		href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"
 		crossorigin="anonymous"
 	/>
+
+	{@html '<script type="application/ld+json">' + JSON.stringify({
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: json.title,
+		datePublished: json.date,
+		dateModified: json.updated || json.date,
+		description: json.description,
+		image: image,
+		url: canonical,
+		author: {
+			'@type': 'Person',
+			name: 'Alex J. Lee',
+			url: SITE_URL
+		}
+	}) + '</script>'}
 </svelte:head>
 
 <!-- <TableOfContents {tocStore} /> -->
