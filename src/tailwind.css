@@ -142,3 +142,17 @@ article.prose h4::before {
 .katex .base {
 	position: relative;
 }
+
+@keyframes protein-fade {
+	from { opacity: 0; }
+	to { opacity: 0.9; }
+}
+
+.protein-fade-in {
+	animation: protein-fade 4s ease-in forwards;
+}
+
+.dark .protein-fade-in {
+	animation: protein-fade 4s ease-in forwards;
+	--tw-opacity: 1;
+}

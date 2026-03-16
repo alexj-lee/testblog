@@ -75,7 +75,7 @@ async function readPaperFile(fileName, postPromises, typeOfItem) {
 				doiSymbol = doi.match(/id=([A-Za-z0-9]+)/)?.[1] || doi
 			} else {
 				doiSymbol = doi.replace('https://doi.org/', '')
-				doiSymbol = doiSymbol.replace('/', '')
+				doiSymbol = doiSymbol.replaceAll('/', '')
 			}
 
 			const hasPdf = doiSymbol && existsSync(`static/pdfs/${doiSymbol}.pdf`);

@@ -80,7 +80,7 @@ class="blogcontent prose mx-auto mt-16 mb-32 w-full max-w-2xl items-start justif
 		<span> Written: {json.date} by {json.author}</span>
 	</div>
 
-	<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} />
+	<BlogLinks YouTube={json.youtube} Paper={json.link} GitHub={json.github} HuggingFace={json.huggingface || ''} />
 
 	<div
 		class="bg border-red mt-2 flex w-full justify-between sm:items-start md:flex-row md:items-center"

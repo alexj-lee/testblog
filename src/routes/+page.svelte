@@ -23,7 +23,7 @@
 <svelte:head>
 	<title>{SITE_TITLE}</title>
 	<link rel="canonical" href={SITE_URL} />
-	<link rel="alternate" type="application/rss+xml" href={SITE_URL + '/rss.xml'} />
+	<!-- <link rel="alternate" type="application/rss+xml" href={SITE_URL + '/rss.xml'} /> -->
 	<meta property="og:url" content={SITE_URL} />
 	<meta property="og:type" content="article" />
 	<meta property="og:title" content={SITE_TITLE} />
@@ -66,15 +66,15 @@
 					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
 				</h2>
 
-				<div in:fade={{ delay: 2200, duration: 2500 }}>
+				<div>
 					<img
 						src="/1jrj-d80_minsize_1mb_backup.webp"
 						alt="A video of a protein wiggling around."
 						class="block
 					max-w-sm scale-100
-					bg-transparent opacity-90 brightness-125 dark:bg-transparent
-					dark:opacity-100
+					bg-transparent brightness-125 dark:bg-transparent
 					dark:brightness-110
+					protein-fade-in
 					"
 					/>
 				</div>
