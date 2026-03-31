@@ -1,6 +1,7 @@
 <script>
 	import {
 		DEFAULT_OG_IMAGE,
+		MY_TWITTER_HANDLE,
 		SITE_DESCRIPTION,
 		SITE_TITLE,
 		SITE_URL
@@ -30,6 +31,7 @@
 	<meta property="og:description" content={SITE_DESCRIPTION} />
 	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
 	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={SITE_TITLE} />
 	<meta name="twitter:description" content={SITE_DESCRIPTION} />
 	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
@@ -71,7 +73,12 @@
 
 				<h2 in:fade={{ delay: 1400, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
 					Please enjoy this image of a protein wiggling around, PDB ID
-					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>.
+					<a href="https://www.rcsb.org/structure/1JRJ">1jrj</a>. I worked on this protein
+					for a couple years at Nano doing biophysical characterization and working
+					to keep it stable for months and months--a fun fact is that the tryptophan cage structure
+					here is one of the smallest tertiary folds (α-helix, 3₁₀-helix, and polyproline 
+					motif all in just 20 AA) we know of, making it an excellent candidate for biophysical
+					studies. 
 				</h2>
 
 				<div>
