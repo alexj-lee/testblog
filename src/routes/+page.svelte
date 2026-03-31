@@ -68,7 +68,7 @@
 					for a couple years at Nano doing biophysical characterization and working
 					to keep it stable for months and months--a fun fact is that the tryptophan cage structure
 					here is one of the smallest tertiary folds (α-helix, 3₁₀-helix, and polyproline 
-					motif all in ~20 AA) we know of, making it an excellent candidate for biophysical
+					motif all in ~20 AA) we know of, once making it excellent candidate for biophysical
 					studies. 
 				</h2>
 
