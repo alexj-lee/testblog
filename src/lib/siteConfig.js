@@ -5,7 +5,6 @@ export const SITE_TITLE = 'alexblog';
 export const SITE_DESCRIPTION = "Alex J. Lee — deep learning for computational biology, spatial transcriptomics, and protein design";
 export const DEFAULT_OG_IMAGE =
 	'https://user-images.githubusercontent.com/69220428/239652125-ca8f5501-0364-4be7-bc25-9af9adcbc689.png';
-export const MY_TWITTER_HANDLE = 'eel__xela';
 export const MY_YOUTUBE = '';
 export const POST_CATEGORIES = ['Paper', 'Software', 'Blog', "Presentation"]; // Other categories you can consider adding: Talks, Tutorials, Snippets, Podcasts, Notes...
 export const GH_PUBLISHED_TAGS = ['Published'];

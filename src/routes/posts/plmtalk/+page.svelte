@@ -1,5 +1,5 @@
 <script>
-	import { MY_TWITTER_HANDLE, SITE_URL } from '$lib/siteConfig';
+	import { SITE_URL } from '$lib/siteConfig';
 	// import Comments from '../../components/Comments.svelte';
 
 	import { page } from '$app/stores';
@@ -48,7 +48,6 @@
 	<meta name="Description" content={json.description || 'Alex J. Lee'} />
 	<meta property="og:description" content={json.description || 'Alex J. Lee'} />
 	<meta name="twitter:card" content={json.image ? 'summary_large_image' : 'summary'} />
-	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={json.title} />
 	<meta name="twitter:description" content={json.description} />
 	<meta property="og:image" content={image} />

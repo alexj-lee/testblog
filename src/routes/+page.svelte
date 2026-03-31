@@ -1,7 +1,6 @@
 <script>
 	import {
 		DEFAULT_OG_IMAGE,
-		MY_TWITTER_HANDLE,
 		SITE_DESCRIPTION,
 		SITE_TITLE,
 		SITE_URL
@@ -31,7 +30,6 @@
 	<meta property="og:description" content={SITE_DESCRIPTION} />
 	<meta property="og:image" content={DEFAULT_OG_IMAGE} />
 	<meta name="twitter:card" content="summary" />
-	<meta name="twitter:creator" content={'@' + MY_TWITTER_HANDLE} />
 	<meta name="twitter:title" content={SITE_TITLE} />
 	<meta name="twitter:description" content={SITE_DESCRIPTION} />
 	<meta name="twitter:image" content={DEFAULT_OG_IMAGE} />
@@ -57,8 +55,18 @@
 					!
 				</h1>
 				<h2 in:fade={{ delay: 600, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">
-					And this is my personal blog. I'm currently a grad student in the Abbasi lab at UCSF, and
-					previously worked in the Seeley lab and at a startup called Nano Precision Medical.
+					And this is my personal blog. I'm recently graduated from my PhD in computational biology
+					and deep learning in the Abbasi lab at UCSF and am working at Calico Life Sciences a machine
+					learning research scientist/engineer. I previously worked in the Seeley lab (multimodal imaging
+					studies of neurodegeneration) and at a startup called Nano Precision Medical (engineering
+					titanium nanostructures for ultralong subcutaneous GLP-1RA delivery).
+
+					I work on creating new machine and deep learning tools for computational biology, with 
+					particular focus on spatial transcriptomics (graph transformers) and protein design 
+					(synthetic data approaches). One great challenge in the field will be truly multiscale
+					modeling, integrating across molecular, cellular, and tissue contexts to realize the 
+					(perhaps unrealized) promises of systems biology and bring biology closer to an 
+					engineering science. 
 				</h2>
 
 				<h2 in:fade={{ delay: 1400, duration: 2000 }} class="mb-4 text-gray-700 dark:text-gray-200">

@@ -1,5 +1,5 @@
 <script>
-	import { MY_TWITTER_HANDLE, SITE_URL, SITE_TITLE } from '$lib/siteConfig';
+	import { SITE_URL, SITE_TITLE } from '$lib/siteConfig';
 	import Nav from '../components/Nav.svelte';
 	import '../tailwind.css';
 
@@ -83,14 +83,6 @@
 				href="https://orcid.org/0000-0003-0001-2848"
 			>
 				ORCID
-			</a>
-			<a
-				class="text-gray-500 transition hover:text-gray-300"
-				target="_blank"
-				rel="noopener noreferrer"
-				href={'https://twitter.com/' + MY_TWITTER_HANDLE}
-			>
-				Twitter
 			</a>
 		</div>
 	</div>
